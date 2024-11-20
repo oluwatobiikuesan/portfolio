@@ -1,0 +1,15 @@
+#root {
+}
+body{
+  padding:  0 auto;
+  margin:  0 auto;
+}
+h1, h2, h3{
+  font-family: Av;
+}
+sub{
+  font-family: Av;
+  color: grey;
+  font-size: 21px;
+}
+p{font-family: Cav;}

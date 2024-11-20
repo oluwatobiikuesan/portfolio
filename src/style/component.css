@@ -1,0 +1,32 @@
+.image-container{
+    width: 100%;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img{
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+.image-container span{
+    color: white;
+    font-size: 100px;
+    font-family: Sawer;
+    text-transform: uppercase;
+    position: absolute;
+    }
+    @media (max-width: 490px){
+        .image-container span{
+            font-size: initial;
+        }
+        .image-container{
+            height: 100px;
+            margin: 0 auto;
+            width: 90%;
+        }
+    }

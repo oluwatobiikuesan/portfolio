@@ -1,0 +1,29 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --white: white;
+  --orange: orange;
+  --black: black;
+}
+a{
+  cursor: pointer;
+}
+@font-face {
+  font-family: Sawer;
+  src: url('./assets/font/Sawer.ttf');
+}
+@font-face {
+  font-family: Punk;
+  src: url('./assets/font/Punk.ttf');
+}
+@font-face {
+  font-family: Cav;
+  src: url("./assets/font/CaviarDreams.ttf");
+}
+@font-face {
+  font-family: Av;
+  src: url("./assets/font/Avilock.ttf");
+}

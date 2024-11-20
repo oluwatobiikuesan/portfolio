@@ -1,0 +1,7 @@
+.layout {
+    display: grid;
+    grid-template-rows: auto auto auto;
+}
+.layout main{
+    min-height: 50dvh;
+}

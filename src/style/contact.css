@@ -1,0 +1,15 @@
+.contact{}
+.contact main{
+    width: 80%;
+    margin-top: 150px;
+}
+.contact section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px;
+}
+.contact .founder0{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}

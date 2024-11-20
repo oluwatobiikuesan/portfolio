@@ -1,0 +1,98 @@
+
+main{
+    width: 100%;
+    margin:  0 auto;
+}
+.intro-text{
+    text-align: left;
+    font-size: 20px;
+    width: 50%;
+    margin-left: 10%;
+}
+section.sec-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100dvh;
+}
+section h2{
+    font-family: Cav;
+    text-align: center;
+    font-size: 5rem;
+    letter-spacing: 50px;
+}
+.sec-2{
+    display: none;
+}
+.miniture{
+    font-size: 90px;
+    text-align: center;
+    letter-spacing: 20px;
+}
+
+/* Mobile Views */
+@media (max-width: 490px){
+    main{
+        width: 100%;
+        margin-top: 0px;
+    }
+    .intro-text{
+        text-align: center;
+        margin-left: 0%;
+        font-size: 1.1rem;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .section.sec-1{
+        width: 100dvw;
+    }
+    section.sec-1 h2{
+        letter-spacing: 0px;
+        align-items: center;
+        font-size: 5rem;
+    }
+    .sec-2{
+        min-height: 50dvh;
+        display: grid;
+    }
+    .sec-2 .grid-2{
+        display: flex;
+        flex-direction: column;
+    }
+    .sec-2 .grid-2 img{
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+    }
+}
+/* Animations section xxxxxxxxxxxxxxxxx */
+@keyframes fadeout{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+@keyframes shiftleft {
+    0%{
+        margin-left: 20px;
+    }
+    100%{
+        margin-left: 0px;
+    }
+}
+.shift-animation{
+    animation: shiftleft 2s forwards 2s 1 forwards ease;
+}
+.fade-animation{
+    animation-name: fadeout;
+    animation: forwards;
+    animation-duration: 20s;
+    animation-delay: 5s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: ease-in;
+    }
