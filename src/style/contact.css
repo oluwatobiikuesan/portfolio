@@ -13,3 +13,31 @@
     justify-content: center;
     padding: 20px;
 }
+aside div input{
+    padding: 5px 20px;
+    width: 40%;
+}
+aside > div > div label{
+    width: 100%;
+    font-family: cav;
+    text-align: left;
+}
+aside div > div{
+    display: flex;
+    flex-direction: column;
+}
+textarea{
+    min-height: 100px;
+}
+#send-btn{
+    width: 100px;
+    margin: 10px 0px;
+    padding: 10px;
+    background-color: var(--orange);
+    border: none;
+    color: white;
+    border-radius: 10px;
+}
+#send-btn:hover{
+    background-color: lightgreen;
+}

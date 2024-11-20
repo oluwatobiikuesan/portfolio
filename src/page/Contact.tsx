@@ -12,7 +12,26 @@ export default function Contact() {
                 </img>
               </div>
               <aside>
+                
+                {/* let us contact you section */}
+              <div>
+                <h3>Let us contact you!</h3>
+                <div>
+                  <div><label>fullname:</label><input type='text'></input>
+                  </div>
+                  <div><label>email:</label><input type='text'></input>
+                  </div>
+                  <div>
+                    <label>Message:</label>
+                    <textarea>
 
+                    </textarea>
+                  </div>
+                  <button id='send-btn'>send</button>
+                  </div>
+                  {/* ends here for the lscu */}
+
+                </div>
               </aside>
             </section>
         </main>
