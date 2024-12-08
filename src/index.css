@@ -4,26 +4,40 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  --white: white;
-  --orange: orange;
-  --black: black;
+  --primary-color: white;
+  --secondary-color: yellow;
+  --background: ;
+  --accent-color: ;
+  --outline: ;
+  --body-text: ;
+  --heading-text: ;
+  --default-image: ;
 }
-a{
-  cursor: pointer;
+*{
+  padding: 0 auto;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
-@font-face {
-  font-family: Sawer;
-  src: url('./assets/font/Sawer.ttf');
+p, a, li{
+  font-size: 12px;
+  font-family: Poppins;
 }
-@font-face {
-  font-family: Punk;
-  src: url('./assets/font/Punk.ttf');
+h1,h2,h3,h4,h5,h6{
+  font-family: Montserrat;
 }
-@font-face {
-  font-family: Cav;
-  src: url("./assets/font/CaviarDreams.ttf");
+ul, li,a{
+  text-decoration: none;
+  list-style-type: none;
 }
-@font-face {
-  font-family: Av;
-  src: url("./assets/font/Avilock.ttf");
+.full-s{
+  height: 100dvh;
+}
+.half-s{
+  height: 50dvh;
+}
+.quart-s{
+  height: 25dvh;
+}
+.highlight {
+  color: var(--secondary-color);
 }
