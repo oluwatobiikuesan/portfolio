@@ -1,11 +1,11 @@
 .layout{
-    background-color: rgb(239, 239, 239);
-    height: 100dvh;
+    background-color: rgb(255, 255, 255);
+    min-height: 100dvh;
     display: grid;
     grid-template-areas: 'header header header header  header header'
                               'main main main main main main'
                             'footer footer footer footer footer footer' ;
 }
 .layout > *{
-    background-color: rgba(173, 216, 230, 0.233);
+    background-color: rgb(255, 255, 255);
 }

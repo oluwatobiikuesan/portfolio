@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Layout from './page/Layout'
+import Grok from './page/Grok'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <Routes>
       <Route path='*' element={undefined}> </Route>
       <Route index path='/*' element={null}></Route>
+      <Route path={"/grok-ai"} element={<Grok/>}/>
     </Routes>
     </div>
   )
