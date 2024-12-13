@@ -33,7 +33,10 @@ main{
     font-size: 35px;
 }
 .content aside{
-    display: flex;
+    display: inline-flex;
+}
+.svg-follow {
+    width: 10%;
 }
 .content .in div {
     margin-top: 20px;
