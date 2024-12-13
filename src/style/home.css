@@ -55,6 +55,14 @@ main{
     grid-column: 3;
     grid-row: 2;
 }
+.ntp {
+    display: flex;
+    justify-content: stretch;
+    }
+    .ntp > div > img{
+        object-fit: cover;
+        object-position: top;
+    }
 @media(max-width: 480px){
     .home .user-container{
         grid-template-columns: 1fr;
@@ -72,5 +80,8 @@ main{
     }
     .svg-follow{
         display: none;
+    }
+    #s2{
+        flex-direction: column;
     }
 }

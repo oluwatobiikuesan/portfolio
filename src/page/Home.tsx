@@ -1,12 +1,10 @@
 import '../style/home.css'
 import {motion} from 'motion/react';
 import {author as information} from '../assets/infomation.json';
-import { PrimaryButton } from '../component/util/PrimaryButton';
-import { Link } from 'react-router-dom';
+import { PrimaryButton } from '../component/PrimaryButton';
 export default function Home() {
   let text = [{item: "i am a software engineer.", color: "yellow"}, {item:"i am a computer science student.", color: "red"}, {item: "i am a graphics designer."}];
   text = text.map(items => {return items});
-  const indefinite = "indefinite";
 
   // The text annimation of the things i am doing
   text.map(items => {return items.item});
@@ -66,7 +64,7 @@ export default function Home() {
             {/* author programming language area */}
             {
               information.language.map((items, i) => (
-                <img src={items} height={20} className='in-img'></img>
+                <img src={items} height={20} key={i} className='in-img'></img>
               ))
             }
           </div>
@@ -85,8 +83,14 @@ export default function Home() {
               </div>
             </div>
             </section>
-            <section className='half-s'>
-
+            <section id='s2' className='half-s ntp'>
+                <div>
+                  <img height={"100%"} src='src\assets\video\bg.gif'>
+                  </img>
+                </div>
+                <div className=''>
+                  <h2>Achievements</h2>
+                </div>
             </section>
     </main>
   )
