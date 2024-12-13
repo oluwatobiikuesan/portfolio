@@ -6,4 +6,4 @@ export const  PrimaryButton = ({children, ...root}: any) => {
             <button className="primary-btn" {...root}>{children}</button>
         </div>
     )
-}
+}   
