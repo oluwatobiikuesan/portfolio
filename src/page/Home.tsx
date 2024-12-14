@@ -3,8 +3,7 @@ import {motion} from 'motion/react';
 import {author as information} from '../assets/infomation.json';
 import { PrimaryButton } from '../component/PrimaryButton';
 import { useEffect, useRef, useState } from 'react';
-import { Navigate, useNavigate, useNavigation } from 'react-router-dom';
-import { nav } from 'framer-motion/client';
+import {  useNavigate } from 'react-router-dom';
 
 let blogitems = [
   {item:{ note: "this is the first blog post", date_published: "20 Feb 2024"} }, 
