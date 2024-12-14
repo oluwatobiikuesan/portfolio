@@ -6,7 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
   --primary-color: white;
   --secondary-color: yellow;
-  --background: ;
+  --background: black;
   --accent-color: ;
   --outline: ;
   --body-text: ;
@@ -33,10 +33,10 @@ ul, li,a{
   height: 100dvh;
 }
 .half-s{
-  height: 50dvh;
+  min-height: 50dvh;
 }
 .quart-s{
-  height: 25dvh;
+  min-height: 25dvh;
 }
 .highlight {
   color: var(--secondary-color);

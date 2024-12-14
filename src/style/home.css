@@ -61,11 +61,87 @@ main{
 }
 .ntp {
     display: flex;
-    justify-content: stretch;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
     }
-    .ntp > div > img{
+    .ntp .showcase {
+        display: flex;
+        place-items: center;
+        width: 100%;
+    }
+    .ntp > .showcase > img{
+        padding: 40px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: top;
+    }
+    .ntp .mini-blog{
+        margin-right: 0;
+        padding: 50px;
+
+    }
+    .mini-blog .mnote{
+        width: 80%;
+        margin-left: 0;
+    }
+    .mnote p{
+        color: grey;
+        margin-bottom: 10px;
+    }
+    .round-image{
+        border-radius: 50%;
+    }
+    .input_blog{
+        align-items: end;
+        display: flex;
+        flex-direction: column;
+    }
+    .input_blog textarea{
+        width: 100%;
+        border-radius: 2px;
+        resize: none;
+        font-family: Poppins;
+        font-size: x-small;
+        text-indent: 2px;
+        height: 100px;
+    }
+    .input_blog button{
+        background-color: black;
+        color: white;
+        font-size: x-small;
+        font-family: Poppins;
+        cursor: pointer;
+        border: none;
+        padding: 5px 20px;
+        margin-left: 0;
+        margin-block: 2px;
+        border-radius: 5px;
+        transition: 0.2s all;
+    }
+    .input_blog button:hover{
+        transition: 0.2s all;
+        padding-inline: 25px;
+        background-color: yellow;
+        color: black;
+    }
+    /* Post content section */
+    .postBody{
+        margin-top: 20px;
+        padding: 10px;
+        overflow-y: scroll;
+        height: 200px;
+    }
+    .postItem{
+        border-radius: 5px;
+        margin-block: 10px;
+        backdrop-filter: blur(10px);
+        padding: 10px;
+        box-shadow: 2px 2px 10px rgba(211, 211, 211, 0.622);
+    }
+    .postItem .date_p{
+        font-size: xx-small;
     }
 @media(max-width: 480px){
     .home .user-container{
@@ -87,5 +163,11 @@ main{
     }
     #s2{
         flex-direction: column;
+    }
+    .mini-blog .mnote{
+        width: 100%;
+    }
+    .ntp > .showcase > img{
+        padding: 0px;
     }
 }
