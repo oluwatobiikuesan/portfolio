@@ -4,6 +4,6 @@
             "language": ["src/assets/images/java-logo-1.png", "src/assets/images/javascript-logo-vector.svg", "src/assets/images/python-logo-vector-1.svg", "src/assets/images/html5-logo-vector.svg", "src/assets/images/css3-logo-vector.svg"]
         },
         "grok-ai": {
-            "apiket": "xai-wRgpuj21rA1Uaa4gPkYGhZ0HJ80FucxwqT1PA2kszI4V7ino6owwCB1Q5iqWlIxXqCEKFgyNvbg0zsdS"
+            "apikey": "xai-wRgpuj21rA1Uaa4gPkYGhZ0HJ80FucxwqT1PA2kszI4V7ino6owwCB1Q5iqWlIxXqCEKFgyNvbg0zsdS"
         }
     }

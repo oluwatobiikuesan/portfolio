@@ -42,14 +42,14 @@ main{
     margin-top: 20px;
 }
 .content .in #plang{
-    background-color: white;
+    background-color: var(--secondary-bg);
     display: flex;
     justify-content: space-evenly;
     padding: 10px;
     border-radius: 10px;
 }
 .ai-model{
-    background-color: rgba(0, 0, 0, 0.108);
+    background-color: var(--transparent-dark-bg);
     border-radius: 2px;
     backdrop-filter: blur(10px);
     width: 100%;
@@ -107,12 +107,11 @@ main{
         border-radius: 2px;
         resize: none;
         font-family: Poppins;
-        font-size: x-small;
-        text-indent: 2px;
+        font-size: small;
         height: 100px;
     }
     .input_blog button{
-        background-color: black;
+        background-color: rgb(4, 3, 3);
         color: white;
         font-size: x-small;
         font-family: Poppins;
@@ -145,7 +144,8 @@ main{
         box-shadow: 2px 2px 10px rgba(211, 211, 211, 0.622);
     }
     .postItem .date_p{
-        font-size: xx-small;
+        font-family: Poppins;
+        font-size: x-small;
     }
 @media(max-width: 480px){
     .home .user-container{
@@ -170,6 +170,9 @@ main{
     }
     .mini-blog .mnote{
         width: 100%;
+    }
+    .ntp .mini-blog{
+        padding: 30px;
     }
     .ntp > .showcase > img{
         padding: 0px;

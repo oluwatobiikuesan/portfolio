@@ -1,0 +1,14 @@
+#root{
+    --primary-color: white;
+    --secondary-color: yellow;
+    --text-color: white;
+    --text-color-dark: black;
+    --background: black;
+    --secondary-bg: white;
+    --transparent-dark-bg:rgba(0, 0, 0, 0.108);
+    --accent-color: ;
+    --outline: ;
+    --body-text: ;
+    --heading-text: ;
+    --default-image: ;
+}

@@ -1,5 +1,5 @@
 
-import '../style/component.css'
+import '../style/component.css';
 export const  PrimaryButton = ({children, ...root}: any) => {
     return(
         <div className="button">

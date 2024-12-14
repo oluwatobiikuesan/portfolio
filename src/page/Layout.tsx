@@ -1,13 +1,9 @@
-import Footer from '../component/Footer'
-import Header from '../component/Header'
+import { Outlet } from 'react-router-dom'
 import '../style/layout.css'
-import Home from './Home'
 export default function Layout() {
   return (
     <div className="layout">
-        <Header/>
-        <Home/>
-        <Footer/>
+        <Outlet/>
     </div>
   )
 }

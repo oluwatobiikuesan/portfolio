@@ -8,6 +8,15 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+.o-link{
+    color:var(--text-color);
+}
+.o-link:hover{
+    background-color: var(--secondary-color);
+    padding: 0px 20px;
+    transition: 0.5s all;
+    color: var(--text-color-dark);
+}
 nav .content ul{
 font-size: 12px;
 display: flex;
@@ -19,6 +28,6 @@ gap: 10px;
 
 @media (max-width: 480px){
     nav{
-        display: none;
+        display: flex;
     }
 }

@@ -3,6 +3,8 @@ import {motion} from 'motion/react';
 import {author as information} from '../assets/infomation.json';
 import { PrimaryButton } from '../component/PrimaryButton';
 import { useEffect, useRef, useState } from 'react';
+import { Navigate, useNavigate, useNavigation } from 'react-router-dom';
+import { nav } from 'framer-motion/client';
 
 let blogitems = [
   {item:{ note: "this is the first blog post", date_published: "20 Feb 2024"} }, 
@@ -15,8 +17,7 @@ export default function Home() {
   const [count, setCount] = useState<number>(0);
   let text = [{item: "i am a software engineer.", color: "yellow"}, {item:"i am a computer science student.", color: "red"}, {item: "i am a graphics designer."}];
   text = text.map(items => {return items});
-
-
+  const navigate = useNavigate();
   useEffect(() => {
     setPostContent(blogitems);
   }, [count]);
@@ -92,10 +93,9 @@ export default function Home() {
             <div className='ai-model'>
               <div>
                 <small>Try out my ai chat</small>
-                <h2>LLL Integration</h2>
+                <h2>LLM Integration</h2>
                               <p>LLM was intergrated in this website, xAi specifically, I chose this ai and model because the mode at which the model was been trained and was properly supervised and does not contain any inadequate data, therefore for the output are nature and precise; not 100%, but atleast 99.9%: says <b>"Elon Musk"</b></p>
-                  <PrimaryButton to={"/grok-i"} onClick={() => {
-                }}>Start Chatting!</PrimaryButton>
+                  <PrimaryButton to={"/ai"} onClick={()=> navigate("/ai")}>Start Chatting!</PrimaryButton>
               </div>
             </div>
             </section>
@@ -107,7 +107,7 @@ export default function Home() {
                 <div className='mini-blog'>
                   <div className='mnote'>
                     <img className='round-image' src='https://images.unsplash.com/photo-1567338783090-f9c90dddc63b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' height={20} width={20}></img>
-                      <p>Recently updates will be made and previewed in this section. Ensuring that i touch different aspect of web content is very essential for this portfolio project.</p>
+                      <p>Recent updates will be made and previewed in this section. Ensuring that i touch different aspect of web content is very essential for this portfolio project.</p>
                       <div className='input_blog'>
                         <textarea ref={postText}></textarea>
                         <button type='button' onClick={() => createPost({count, setCount, postText})}>Post</button>
@@ -133,11 +133,54 @@ export default function Home() {
 function createPost({count, setCount, postText}: any){
 // alert(count + " " + postText.current?.value)
 const date = new Date();
-let created_time = date.getDate().toString();    
+let month : any = date.getUTCMonth() + 1;
+switch(month){
+  case 1:
+    month = "Jan";
+    break;
+  case 2:
+    month = "Feb";
+    break;
+  case 3:
+    month = "Mar";
+    break;
+  case 4:
+    month = "Apr";
+    break;  
+  case 5:
+    month = "May";
+    break;     
+  case 6:
+    month = "Jun";
+    break; 
+  case 7:
+    month = "Jul";
+    break;
+  case 8:
+    month = "Aug";
+    break;
+  case 9:
+    month = "Sep";
+    break;
+  case 10:
+    month = "Oct";
+    break;
+  case 11:
+    month = "Nov";
+    break;
+  case 12:
+    month = "Dec";
+    break;
+  default:
+    return "Month does not exist";
+}
+
+let created_time = month;    
 if(postText.current?.value == ""){
 }else{
 // updates the array of the post
 setCount(count+1);
 blogitems.unshift({item: {note: `${postText.current?.value}`, date_published: created_time}});
 }
+postText.current.value = "";
 }
