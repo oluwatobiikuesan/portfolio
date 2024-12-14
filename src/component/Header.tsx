@@ -11,7 +11,7 @@ export default function Header() {
                         <ul>
                             <Link className='o-link' to={"/home"}>home</Link>
                             <Link className='o-link' to={"/ai"}>work</Link>
-                            <Link className='o-link' to={undefined}>vision</Link>
+                            {/* <Link className='o-link' to={undefined}>vision</Link> */}
                             <Link className='o-link' to={"/contact"}>contact</Link>
                         </ul>
                     </div>
