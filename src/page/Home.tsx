@@ -91,8 +91,9 @@ export default function Home() {
             {/* Grok ai model section */}
             <div className='ai-model'>
               <div>
-                <h2>Powered by Grok: xAi</h2>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ipsa laboriosam ab temporibus placeat rem vel accusantium dolore impedit aspernatur necessitatibus nemo eos eaque dolor soluta, eligendi maiores repellat ea!</p>
+                <small>Try out my ai chat</small>
+                <h2>LLL Integration</h2>
+                              <p>LLM was intergrated in this website, xAi specifically,. I choose this ai and model because the mode at which the model was been train was properly supervised and does not contain in adequate data, therefore for the output are nature and precise; not 100%, but atleast 99.9%: says <b>"Elon Musk"</b></p>
                   <PrimaryButton to={"/grok-i"} onClick={() => {
                 }}>Start Chatting!</PrimaryButton>
               </div>

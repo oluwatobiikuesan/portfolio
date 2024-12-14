@@ -59,6 +59,10 @@ main{
     grid-column: 3;
     grid-row: 2;
 }
+.ai-model small{
+    text-transform: capitalize;
+    color: grey;
+}
 .ntp {
     display: flex;
     justify-content: center;
