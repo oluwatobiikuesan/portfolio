@@ -1,25 +1,15 @@
 import '../style/home.css'
 import {motion} from 'motion/react';
 import {author as information} from '../assets/infomation.json';
+import {socialHandle} from '../assets/infomation.json'
 import { PrimaryButton } from '../component/PrimaryButton';
-import { useEffect, useRef, useState } from 'react';
 import {  useNavigate } from 'react-router-dom';
 
-let blogitems = [
-  {item:{ note: "this is the first blog post", date_published: "20 Feb 2024"} }, 
-  {item: {note: "this is the second blog post here, please make a post here", date_published: "12 Dec 2024"}}
-]
 
 export default function Home() {
-  const [postcontent, setPostContent] = useState(blogitems);
-  const postText = useRef <null | HTMLTextAreaElement>(null);
-  const [count, setCount] = useState<number>(0);
   let text = [{item: "i am a software engineer.", color: "yellow"}, {item:"i am a computer science student.", color: "red"}, {item: "i am a graphics designer."}];
   text = text.map(items => {return items});
   const navigate = useNavigate();
-  useEffect(() => {
-    setPostContent(blogitems);
-  }, [count]);
 
   // The text annimation of the things i am doing
   text.map(items => {return items.item});
@@ -56,7 +46,17 @@ export default function Home() {
          {/* The text information. */}
          <h4>Hi! My name is,</h4>
           <h1>Oluwatobi Ikuesan</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dolorum quaerat eum harum voluptatum deleniti aperiam quod officia ipsa facilis excepturi ullam, eaque enim perspiciatis reiciendis inventore nostrum porro odit.</p>
+          <p>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
+          <h4>Social Media and  Project:</h4>
+          <div className='socialHandles'>
+            {
+              socialHandle.map((items, i) => (
+                <span>
+                  <a key={i} href={items.link}><img src={items.image} height={20}></img></a>
+                </span>
+              ))
+            }
+          </div>
           <div className='inf'>
           {
             text.map((items, index) => (
@@ -86,8 +86,7 @@ export default function Home() {
          </div>
           </aside>
             </div>
-
-
+            
             {/* Grok ai model section */}
             <div className='ai-model'>
               <div>
@@ -98,88 +97,6 @@ export default function Home() {
               </div>
             </div>
             </section>
-            <section id='s2' className='half-s ntp'>
-                <div className='showcase'>
-                  <img height={"100%"} src='src\assets\video\bg.gif'>
-                  </img>
-                </div>
-                <div className='mini-blog'>
-                  <div className='mnote'>
-                    <img className='round-image' src='https://images.unsplash.com/photo-1567338783090-f9c90dddc63b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' height={20} width={20}></img>
-                      <p>Recent updates will be made and previewed in this section. Ensuring that i touch different aspect of web content is very essential for this portfolio project.</p>
-                      <div className='input_blog'>
-                        <textarea ref={postText}></textarea>
-                        <button type='button' onClick={() => createPost({count, setCount, postText})}>Post</button>
-                      </div>
-                    <div className='postBody'>
-                        {
-                          postcontent.map((items, index ) =>
-                          (
-                            <div key={index} className='postItem'>
-                              <p>{items.item.note}</p>
-                              <span className='date_p'>{items.item.date_published}</span>
-                            </div>
-                          ))
-                        }
-                    </div>
-                  </div>
-                </div>
-            </section>
     </main>
   )
-}
-
-function createPost({count, setCount, postText}: any){
-// alert(count + " " + postText.current?.value)
-const date = new Date();
-let month : any = date.getUTCMonth() + 1;
-switch(month){
-  case 1:
-    month = "Jan";
-    break;
-  case 2:
-    month = "Feb";
-    break;
-  case 3:
-    month = "Mar";
-    break;
-  case 4:
-    month = "Apr";
-    break;  
-  case 5:
-    month = "May";
-    break;     
-  case 6:
-    month = "Jun";
-    break; 
-  case 7:
-    month = "Jul";
-    break;
-  case 8:
-    month = "Aug";
-    break;
-  case 9:
-    month = "Sep";
-    break;
-  case 10:
-    month = "Oct";
-    break;
-  case 11:
-    month = "Nov";
-    break;
-  case 12:
-    month = "Dec";
-    break;
-  default:
-    return "Month does not exist";
-}
-
-let created_time = month;    
-if(postText.current?.value == ""){
-}else{
-// updates the array of the post
-setCount(count+1);
-blogitems.unshift({item: {note: `${postText.current?.value}`, date_published: created_time}});
-}
-postText.current.value = "";
 }

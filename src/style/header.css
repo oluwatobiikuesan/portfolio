@@ -8,6 +8,10 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+header > div{
+    width: 100%;
+    text-align: left;
+}
 .o-link{
     color:var(--text-color);
 }
