@@ -22,13 +22,13 @@ export default function Work() {
 }
 
 
-const Modal = ({children} :any) => {
-  return(
-    <div className="large_modal">
-    {children}
-    </div>
-  )
-}
+// const Modal = ({children} :any) => {
+//   return(
+//     <div className="large_modal">
+//     {children}
+//     </div>
+//   )
+// }
 
 const ProjectTab = () => {
   return(
