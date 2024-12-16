@@ -6,6 +6,7 @@ let generated  = [
     text: ""
   }
 ]
+document.title = "Grok | Daniel Ikuesan";
 async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount} : any){
   if(!message.current?.value){
     alert("enter a prompt please!");
