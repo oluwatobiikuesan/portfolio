@@ -7,11 +7,15 @@ import Header from './component/Header'
 import Footer from './component/Footer'
 import Contact from './page/Contact'
 import Work from './page/Work'
+import { Suspense } from 'react'
+import Loading from './page/Loading'
+
 
 function App() {
   return (
     <div>
       
+      <Suspense fallback={<Loading/>}>
       <Header/>
     <Routes>
       <Route path='/' element={<Layout/>}>
@@ -24,6 +28,7 @@ function App() {
     </Routes>
    
     <Footer/>
+    </Suspense>
     </div>
   )
 }

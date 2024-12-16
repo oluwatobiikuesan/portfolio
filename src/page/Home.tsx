@@ -6,6 +6,8 @@ import { PrimaryButton } from '../component/PrimaryButton';
 import {  useNavigate } from 'react-router-dom';
 
 
+
+
 export default function Home() {
   let text = [{item: "i am a software engineer.", color: "yellow"}, {item:"i am a computer science student.", color: "red"}, {item: "i am a graphics designer."}];
   text = text.map(items => {return items});
@@ -52,7 +54,7 @@ export default function Home() {
             {
               socialHandle.map((items, i) => (
                 <span>
-                  <a key={i} href={items.link}><img src={items.image} height={20}></img></a>
+                  <a key={i} href={items.link}><img key={i} src={items.image} height={20}></img></a>
                 </span>
               ))
             }

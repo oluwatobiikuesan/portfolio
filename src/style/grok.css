@@ -1,18 +1,74 @@
 .grok{
     display: flex;
      height: 100dvh;
-    background-color: rgb(29, 107, 107);
+     width: 100dvw;
+     background-color: var(--background);
 }
 .grok .process_tab{
+    width: 60%;
+    padding-inline: 20px;
     grid-column: 2;
-    background-color: aliceblue;
-    width: 50dvw;
     height: 80dvh;
-    justify-self: right;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    background-color: var(--transparent-dark-bg);
+    border-radius: 10px;
+    padding-bottom: 30px;
+    color: var(--text-color);
+}
+.process_tab h3{
+    padding: 30px 0px;
+    width: 100%;
+    text-align: left;
+}
+.neon-effect{
+    box-shadow: -10px -2px 15px rgba(255, 255, 0, 0.155), 2px 2px 10px rgba(177, 6, 6, 0.577);
+    background-color: black;
 }
 .process_tab .chat_output{
-    background-color: aqua;
-    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    /* background-color: aqua; */
+    overflow-y: scroll;
+    overflow-wrap: anywhere;
+    overscroll-behavior: smooth;
     height: 100%;
+    padding-bottom: 5px;
+}
+.chat_output p{
+    display: flex;
+    text-align: left;
+    margin-left: 0;
+}
+.chat_output p > span:nth-child(1){
+    padding-inline: 5px;
+    font-family: Poppins;
+    height: 100%;
+}
+.grok input{
+    border: none;
+    font-size: 16px;
+    margin:  0 auto;
+    width: 50%;
+    padding: 10px 10px;
+    border-radius: 20px;
+    color: var(--text-color);
+    margin-top: 5px;
+}
+.round{
+    border-radius: 50%;
+}
+.grok input::placeholder{
+    font-size: smaller
+}
+@media (max-width: 480px){
+ .grok .process_tab{
+        width: 90%;
+    }
+    .grok input{
+        width: 90%
+    }
 }

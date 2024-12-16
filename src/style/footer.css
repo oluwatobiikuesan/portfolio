@@ -9,6 +9,6 @@ footer{
 
 @media (max-width: 490px){
     footer{
-        display: inline-block;
+        display: none;
     }
 }
