@@ -2,9 +2,9 @@
     background-color: rgb(255, 255, 255);
     min-height: 100dvh;
     display: grid;
-    grid-template-areas: 'header header header header  header header'
-                              'main main main main main main'
-                            'footer footer footer footer footer footer' ;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    position: relative;
 }
 .layout > *{
     background-color: rgb(255, 255, 255);

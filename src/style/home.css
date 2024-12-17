@@ -1,6 +1,5 @@
-main{
+.home{
     grid-area: main;
-    min-height: 100dvh;
     width: 100%;
 }
 .home .user-container{

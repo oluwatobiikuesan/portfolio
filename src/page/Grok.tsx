@@ -1,12 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import '../style/grok.css'
-import { openai } from '../component/util/openai'
-let generated  = [
-  {
-    text: ""
-  }
-]
-document.title = "Grok | Daniel Ikuesan";
+import '../style/grok.css';
+import { openai } from '../component/util/openai';
+let generated  = [{text: ""}];
+
 async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount} : any){
   if(!message.current?.value){
     alert("enter a prompt please!");
@@ -31,33 +27,35 @@ async function requestMessage(message : {current : { value : string } }, {setSta
   setCount(count + 1);
 }
 catch(e){
-  console.log(e)
+  console.error(e);
+}}
 }
 
-}
-}
 
 export default function Grok() {
+  document.title = "Grok | Daniel Ikuesan";
   const [count, setCount] = useState <any | number>(0);
   const [state, setState] = useState(generated);
   const userMessage: any = useRef <number | string>(null);
-  // let empty = 0;
-
+  
   useEffect(() =>{
     setState(generated);
     userMessage.current.value = "";
   }, [count])
   return (
-    <div className="grok">
+    <main className="grok">
         <div className="process_tab neon-effect">
           <h3>Grok:</h3>
     <div className="chat_output">
       {
-         state.map((item, i) =>  (
+         state.map((item, i) => (
+
           <p key={i}>
           <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='round' height={10}></img></span>
           <span>
-          {item.text}
+          {
+          item.text.includes("--") ? item.text.replace("--", "\n") : item.text
+          }
           </span>
         </p>
          ))
@@ -76,6 +74,6 @@ export default function Grok() {
     }
     }/>
         </div>
-    </div>
+    </main>
   )
 }
