@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import '../style/grok.css';
 import { openai } from '../component/util/openai';
 let generated  = [{text: ""}];
+let instructionText = "Click outside the input field after every text has been inserted to get a response";
+
 
 async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount} : any){
   if(!message.current?.value){
@@ -45,7 +47,7 @@ export default function Grok() {
   return (
     <main className="grok">
         <div className="process_tab neon-effect">
-          <h3>Grok:</h3>
+          <h3>grok:</h3>
     <div className="chat_output">
       {
          state.map((item, i) => (
@@ -54,7 +56,7 @@ export default function Grok() {
           <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='round' height={10}></img></span>
           <span>
           {
-          item.text.includes("--") ? item.text.replace("--", "\n") : item.text
+          item.text
           }
           </span>
         </p>
@@ -67,6 +69,11 @@ export default function Grok() {
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni voluptas nobis repellat fuga corporis soluta aliquid reiciendis praesentium eos nesciunt dolore, molestiae officiis at labore tenetur molestias dolorem delectus illo!
         </span>
       </p> */}
+    </div>
+    <div className='instruction'>
+      <p className='instruction'>
+        {instructionText}
+      </p>
     </div>
     <input ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'  onMouseLeave={() =>{
       requestMessage(userMessage, {setState}, {count, setCount});

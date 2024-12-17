@@ -67,6 +67,14 @@
 .grok input::placeholder{
     font-size: smaller
 }
+.grok .instruction{
+    padding-block: 10px;
+    color: grey;
+    font-size: xx-small;
+}
+.grok .instruction > span{
+    color: var(--secondary-color);
+}
 @media (max-width: 480px){
 .grok .process_tab{
         width: 90%;
@@ -76,5 +84,8 @@
     }
 .process_tab .chat_output::-webkit-scrollbar{
         background-color: var(--secondary-color);
+    }
+    .grok .instruction{
+        font-size: 10px;
     }
 }
