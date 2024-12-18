@@ -5,18 +5,19 @@ let generated  = [{text: ""}];
 let instructionText = "Click outside the input field after every text has been inserted to get a response";
 
 
-async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount} : any){
+async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount, setLoader} : any){
   if(!message.current?.value){
     alert("enter a prompt please!");
     return;
-  }
+  } 
   // do this if the input is empty and has no vlaue in it.
   else{
+    setLoader(true);
     try{
   const  completion = await openai.chat.completions.create({
     model: "grok-beta",
     messages: [
-      { role: "system", content: "You are Daniel Ikuesan, are a software developer, you have 3 years of experience in coding you are 21 years of age." },
+      { role: "system", content: "You are Daniel Ikuesan, are a software developer, you have 3 years of experience in coding you are 21 years of age. i learnt java, javascript, python, typescript, sql, svg, xml, html, css with  frameworks like reactjs, react native, flutter. i  have create somsny projects ranginf from tools, api and web applications for personal snd business use." },
       {
         role: "user",
         content: message.current.value,
@@ -24,7 +25,7 @@ async function requestMessage(message : {current : { value : string } }, {setSta
     ],
   })
   console.log(completion.choices[0].message?.content);
-  generated.unshift({text: `${completion.choices[0].message?.content}`});
+  generated.push({text: `${completion.choices[0].message?.content}`});
   setState(generated);
   setCount(count + 1);
 }
@@ -39,14 +40,21 @@ export default function Grok() {
   const [count, setCount] = useState <any | number>(0);
   const [state, setState] = useState(generated);
   const userMessage: any = useRef <number | string>(null);
+  const [load, setLoader] = useState(false);
   
   useEffect(() =>{
     setState(generated);
     userMessage.current.value = "";
-  }, [count])
+    setLoader(false);
+  }, [count]); // remove the values within the input field.
+
   return (
     <main className="grok">
+      
         <div className="process_tab neon-effect">
+        {
+          !load ? "": <span className='loaderContent'>please wait....</span>
+        }
           <h3>grok:</h3>
     <div className="chat_output">
       {
@@ -75,12 +83,23 @@ export default function Grok() {
         {instructionText}
       </p>
     </div>
-    <input ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'  onMouseLeave={() =>{
-      requestMessage(userMessage, {setState}, {count, setCount});
+    <div className="userInput">
+    <span><input ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'/></span>
+    <span className='buttonContainer'>
+      <button type='button'><img src='src\assets\icons\text.png' height={20} onClick={() =>{
+      requestMessage(userMessage, {setState}, {count, setCount, setLoader});
       userMessage.current.value == "";
     }
-    }/>
+    }></img></button>
+    </span>
+    </div>
         </div>
     </main>
+  )
+}
+
+const SpinnerComponent = ()=> {
+  return(
+    <Spinner animation='grow' style={{backgroundColor: "white"}}/>
   )
 }
