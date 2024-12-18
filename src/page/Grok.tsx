@@ -97,9 +97,3 @@ export default function Grok() {
     </main>
   )
 }
-
-const SpinnerComponent = ()=> {
-  return(
-    <Spinner animation='grow' style={{backgroundColor: "white"}}/>
-  )
-}
