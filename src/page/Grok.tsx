@@ -80,7 +80,6 @@ export default function Grok() {
     </div>
     <div className='instruction'>
       <p className='instruction'>
-        {instructionText}
       </p>
     </div>
     <div className="userInput">
