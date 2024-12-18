@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import '../style/grok.css';
 import { openai } from '../component/util/openai';
 let generated  = [{text: ""}];
-let instructionText = "Click outside the input field after every text has been inserted to get a response";
-
 
 async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount, setLoader} : any){
   if(!message.current?.value){
