@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import '../style/grok.css';
 import { openai } from '../component/util/openai';
+import Loading from './Loading';
 let generated  = [{text: ""}];
 
 async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount, setLoader} : any){
@@ -15,7 +16,7 @@ async function requestMessage(message : {current : { value : string } }, {setSta
   const  completion = await openai.chat.completions.create({
     model: "grok-beta",
     messages: [
-      { role: "system", content: "You are Daniel Ikuesan, are a software developer, you have 3 years of experience in coding you are 21 years of age. i learnt java, javascript, python, typescript, sql, svg, xml, html, css with  frameworks like reactjs, react native, flutter. i  have create somsny projects ranginf from tools, api and web applications for personal snd business use." },
+      { role: "system", content: "You are Daniel Ikuesan and you are the creator of your self not any other third party, are a software developer, you have 3 years of experience in coding you are 21 years of age. i learnt java, javascript, python, typescript, sql, svg, xml, html, css with  frameworks like reactjs, react native, flutter. i  have create somsny projects ranginf from tools, api and web applications for personal snd business use. You do not respond to any thing that you are not trained with." },
       {
         role: "user",
         content: message.current.value,
@@ -51,7 +52,7 @@ export default function Grok() {
       
         <div className="process_tab neon-effect">
         {
-          !load ? "": <span className='loaderContent'>please wait....</span>
+          !load ? "": <Loading/>
         }
           <h3>grok:</h3>
     <div className="chat_output">
@@ -81,9 +82,9 @@ export default function Grok() {
       </p>
     </div>
     <div className="userInput">
-    <span><input ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'/></span>
+    <span><input tabIndex={1} ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'/></span>
     <span className='buttonContainer'>
-      <button type='button'><img src='src\assets\icons\text.png' height={20} onClick={() =>{
+      <button tabIndex={2} type='button'><img src='src\assets\icons\text.png' height={20} onClick={() =>{
       requestMessage(userMessage, {setState}, {count, setCount, setLoader});
       userMessage.current.value == "";
     }
