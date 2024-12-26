@@ -6,15 +6,10 @@ import { PrimaryButton } from '../component/PrimaryButton';
 import {  useNavigate } from 'react-router-dom';
 
 
-
-
 export default function Home() {
-  let text = [{item: "i am a software engineer.", color: "yellow"}, {item:"i am a computer science student.", color: "red"}, {item: "i am a graphics designer."}];
-  text = text.map(items => {return items});
+  let item = "i am a software engineer. i am a computer science student. i am a graphics designer."
   const navigate = useNavigate();
 
-  // The text annimation of the things i am doing
-  text.map(items => {return items.item});
   return (
     <main className='home'>
         <section className='user-container homepage'>
@@ -61,19 +56,13 @@ export default function Home() {
           </div>
           <div className='inf'>
           {
-            text.map((items, index) => (
-              <motion.span
-              initial={{opacity: 0, color: items.color}}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                delay: 1,
-                duration: "2"
-              }} key={index}>
-                {items.item}{" "}
-              </motion.span>
-            ))
+           item.split(" ").map((itemSplit, i) => (
+                <motion.span initial={{opacity: 0}}
+                animate={{opacity: 1, color: (itemSplit.includes("software") || itemSplit.includes("engineer") || itemSplit.includes("designer.")  ? "yellow" : "white"), fontWeight: itemSplit === "software" ? "bolder" : "normal"}}
+                transition={{duration: 1, delay: i/ 3}}>
+                  {itemSplit} {" "}
+                </motion.span>
+              ))
           }
           </div>
 

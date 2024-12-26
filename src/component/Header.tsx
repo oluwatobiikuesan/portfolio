@@ -1,9 +1,12 @@
 // import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../style/header.css'
 export default function Header() {
   return (
     <header className='header'>
-            <div><h4>xdoodle</h4></div>
+            <div><Link style={{color: "unset", font: "unset"}} to={"/"}>
+            <h4>xdoodle</h4>
+            </Link></div>
             <nav>
                 <div className='dropdown-container'>
                     <div className='null'></div>

@@ -84,7 +84,7 @@ export default function Grok() {
     <div className="userInput">
     <span><input tabIndex={1} ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'/></span>
     <span className='buttonContainer'>
-      <button tabIndex={2} type='button'><img src='src\assets\icons\text.png' height={20} onClick={() =>{
+      <button tabIndex={2} type='button'><img src='\icons\text.png' height={20} onClick={() =>{
       requestMessage(userMessage, {setState}, {count, setCount, setLoader});
       userMessage.current.value == "";
     }
