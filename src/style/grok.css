@@ -5,8 +5,7 @@
     align-items: center;
     background-color: var(--background);
     width: 100%;
-    max-height: 100dvh;
-    grid-row: 1 / span 3;
+    height: 100dvh;
 }
 .grok .loaderContent{
     color: var(--text-color);

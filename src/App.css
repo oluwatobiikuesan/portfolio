@@ -1,6 +1,6 @@
 #root{
     --primary-color: white;
-    --secondary-color: yellow;
+    --secondary-color: grey;
     --text-color: white;
     --text-color-dark: black;
     --background: black;
@@ -11,4 +11,10 @@
     --body-text: ;
     --heading-text: ;
     --default-image: ;
+}
+.subheading{
+    color: var(--secondary-color);
+}
+.bigtitle{
+    font-size: 120px;
 }

@@ -14,6 +14,13 @@ export default function Home() {
     <main className='home'>
         <section className='user-container homepage'>
           <div className='content'>
+         <div className='in'>
+         {/* The text information. */}
+         <h5 className='subheading'>Hello there, my name is</h5>
+          <h1 className='bigtitle'>Oluwatobi Ikuesan</h1>
+          <p>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
+        </div>
+        
           <svg id='blinknl' height={"100%"} width={"100%"}>
             <circle cx={20} cy={20} r={10} fillOpacity={0.5} fill='yellow'>
               <animate
@@ -26,25 +33,10 @@ export default function Home() {
               </animate>
             </circle>
           </svg>
-          <aside>
-            <div className='svg-follow'>
-              {/* svg graphics to follow the text as been structured */}
-                <svg height={"100%"}>
-                  <circle cy={10} cx={10} r={10} fill='white'>
-                  </circle>
-                  <circle cy={180} cx={10} r={10} fill='white'>
-                  </circle>
-                  <circle cy={225} cx={10} r={5} fill='white'>
-                  </circle>
-                  <line x1={10} y1={0} x2={10} y2={300} stroke='white'></line>
-                </svg>
             </div>
-         <div className='in'>
-         {/* The text information. */}
-         <h4>Hi! My name is,</h4>
-          <h1>Oluwatobi Ikuesan</h1>
-          <p>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
-          <h4>Social Media and  Project:</h4>
+            
+          <div className='socialContainer'>
+          <h4 className='subheading'>Social Media and  Project:</h4>
           <div className='socialHandles'>
             {
               socialHandle.map((items, i) => (
@@ -54,11 +46,12 @@ export default function Home() {
               ))
             }
           </div>
-          <div className='inf'>
+          {/* animation for my details and currrent doings. */}
+          <div className='details'>
           {
            item.split(" ").map((itemSplit, i) => (
                 <motion.span initial={{opacity: 0}}
-                animate={{opacity: 1, color: (itemSplit.includes("software") || itemSplit.includes("engineer") || itemSplit.includes("designer.")  ? "yellow" : "white"), fontWeight: itemSplit === "software" ? "bolder" : "normal"}}
+                animate={{opacity: 1, color: (itemSplit.includes("software") || itemSplit.includes("engineer") || itemSplit.includes("designer.")  ? "orange" : "white"), fontWeight: itemSplit === "software" ? "bolder" : "normal"}}
                 transition={{duration: 1, delay: i/ 3}}>
                   {itemSplit} {" "}
                 </motion.span>
@@ -66,7 +59,7 @@ export default function Home() {
           }
           </div>
 
-          <div id='plang'>
+          <div className='plang'>
             {/* author programming language area */}
             {
               information.language.map((items, i) => (
@@ -75,9 +68,9 @@ export default function Home() {
             }
           </div>
          </div>
-          </aside>
-            </div>
-            
+
+ 
+
             {/* Grok ai model section */}
             <div className='ai-model'>
               <div>

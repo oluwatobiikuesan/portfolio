@@ -49,7 +49,6 @@ export default function Grok() {
 
   return (
     <main className="grok">
-      
         <div className="process_tab neon-effect">
         {
           !load ? "": <Loading/>
