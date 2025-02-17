@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import '../style/grok.css';
-import { openai } from '../component/util/openai';
+import { openai } from '../util/openai';
 import Loading from './Loading';
 let generated  = [{text: ""}];
 
@@ -48,24 +47,26 @@ export default function Grok() {
   }, [count]); // remove the values within the input field.
 
   return (
-    <main className="grok">
-        <div className="process_tab neon-effect">
+    <main className="bg-black p-10 h-dvh">
+        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] p-10 border-1 relative">
         {
           !load ? "": <Loading/>
         }
-          <h3>grok:</h3>
-    <div className="chat_output">
+        <div className='bg-white h-[60dvh] p-5 rounded-sm'>
+          <h3 className='lg:text-9xl text-6xl uppercase text-black font-black'>grok:</h3>
+    <div className="lg:h-3/5 overflow-y-auto">
       {
          state.map((item, i) => (
 
-          <p key={i}>
-          <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='round' height={10}></img></span>
-          <span>
+          <p key={i} className='text-white-100 w-full p-2 text-left flex'>
+          <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='h-2' height={10}></img></span>
+          <span className='text-black w-full p-2'>
           {
-          item.text
+          item.text.split("/^[#]+|[#]+$/").join("")
           }
           </span>
         </p>
+        
          ))
       }
     {/* <p>
@@ -80,16 +81,20 @@ export default function Grok() {
       <p className='instruction'>
       </p>
     </div>
-    <div className="userInput">
-    <span><input tabIndex={1} ref={userMessage} className='neon-effect' type="text" placeholder='Let&apos;s chat..'/></span>
-    <span className='buttonContainer'>
-      <button tabIndex={2} type='button'><img src='\icons\text.png' height={20} onClick={() =>{
+    <div className="flex items-center gap-0.5">
+
+    <span className='w-full'><input tabIndex={1} ref={userMessage} className='bg-white p-2 w-full rounded-sm border-2' type="text" placeholder='Let&apos;s chat..'/></span>
+
+
+      <button className='h-full w-10 bg-white rounded-sm' tabIndex={2} type='button'><img className='object-contain' src='\icons\text.png' onClick={() =>{
       requestMessage(userMessage, {setState}, {count, setCount, setLoader});
       userMessage.current.value == "";
     }
     }></img></button>
-    </span>
     </div>
+        </div>
+
+
         </div>
     </main>
   )

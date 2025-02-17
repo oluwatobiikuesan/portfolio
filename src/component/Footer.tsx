@@ -1,9 +1,8 @@
-import '../style/footer.css'
 export default function Footer() {
     let date = new Date();
     let year = date.getFullYear();
   return (
-        <footer>
+        <footer className="w-dvw text-center">
             <p>xdoodle © {year}</p>
         </footer>
   )
