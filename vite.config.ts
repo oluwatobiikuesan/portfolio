@@ -4,6 +4,11 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-
   plugins: [react(), tailwindcss()],
+  server: {
+    cors: {
+      origin: "https://xdoodle.onrender.com",
+      methods: ['GET', 'POST']
+    }
+  }
 })
