@@ -2,7 +2,6 @@ import { PrimaryButton } from '../component/ui/PrimaryButton';
 import {  useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Container } from '../component/ui/Container';
-import axios from 'axios';
 
 export default function Home() {
   // let item = "i am a software engineer. i am a computer science student. i am a graphics designer."
@@ -83,27 +82,6 @@ function AIBoardSection(){
   )
 }
 
-
-async function LinkendInProfilePost() {
-  const option = {
-    method: 'GET',
-    url: 'https://linkedin-data-api.p.rapidapi.com/get-profile-posts',
-    params: {
-      username: 'adamselipsky'
-    },
-    headers: {
-      'x-rapidapi-key': 'bcca577692msha919d06da911531p156025jsn7d60c23b0b2c',
-      'x-rapidapi-host': 'linkedin-data-api.p.rapidapi.com'
-    }
-  };
-  try{
-    const response = await axios.request(option);
-    console.log(response.data);
-  }catch(e){
-    console.log(e);
-  }
-}
-LinkendInProfilePost();
 
 function VisionBoard() {
 
