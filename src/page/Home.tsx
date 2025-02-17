@@ -12,6 +12,7 @@ export default function Home() {
         bg-black backdrop-blur-2xl lg:p-10 pb-10 pt-10'>
     <div className='p-2 flex items-center justify-center flex-col gap-5'>
     <WelcomePage/>
+    <LanuageSection/>
     <AIBoardSection/>
     <VisionBoard/>
     </div>
@@ -55,6 +56,13 @@ function WelcomePage(){
 }
 
 
+function LanuageSection(){
+  return(
+    <Container>
+      <h1 className='text-5xl font-black'>Language & Skills</h1>
+    </Container>
+  )
+}
 
 function AIBoardSection(){
   const navigate = useNavigate();
