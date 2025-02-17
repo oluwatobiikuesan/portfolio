@@ -32,10 +32,10 @@ const projectData: projectInterface []= [
 
 export default function Work() {
   return (
-    <div className="w-dvw h-dvh">
-      <div className="bg-black h-dvh">
+    <div className="w-dvw min-h-dvh">
+      <div className="bg-black min-h-dvh">
         <h3 className="text-white text-8xl p-10">Project Space</h3>
-        <div className="w-full grid grid-cols-3 gap-y-5">
+        <div className="w-full grid lg:grid-cols-3 grid-cols-2">
           { 
             projectData.map((items, index) => (
               <ProjectTab link={items.link} root={index % 2 == 0 ? "hover:rotate-1" : "hover:-rotate-1"} title={items.title} image={items.image} desc={items.desc} key={index} />
@@ -50,11 +50,11 @@ export default function Work() {
 
 const ProjectTab = ({title, image, link, desc, root}: projectInterface) => {
   return(
-    <div className={` project_item w-[300px] p-2 bg-white rounded-sm cursor-pointer ${root}`}>
+    <div className={`scale-90 project_item lg:w-[300px] w-[200px] p-2 bg-white rounded-sm cursor-pointer ${root}`}>
     <img src={image} className="w-full h-[100px] object-cover object-center"></img>
     <h5 className="text-black font-bold text-sm pt-1.5 uppercase">{title}</h5>
     <a href={link} className="text-purple-600">visit link &gt;</a>
-    <p className="text-black-100 max-h-[150px] overflow-hidden">{desc}</p>
+    <p className="text-black-100 max-h-[150px] overflow-hidden text-[10px]">{desc}</p>
   </div>
   )
 }

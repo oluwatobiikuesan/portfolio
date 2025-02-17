@@ -42,14 +42,14 @@ function WelcomePage(){
     <h5 className={`text-yellow-200 p-2 lg:text-sm lg:text-center lg:w-full animate-pulse transition-all text-center text-sm`}>Hello there, my name is</h5>
      <h1 className='lg:text-8xl text-3xl w-full text-center font-bold'>Oluwatobi Ikuesan</h1>
 
-     <p className='text-pretty lg:w-[90%] text-center pl-5 pr-5'>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
+     <p className='text-pretty lg:w-[90%] text-center lg:pl-5 lg:pr-5'>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
     <p className='text-center items-center justify-center flex pt-10'>
       <a href='project' className='text-purple-700'>View Project &gt;</a>
     </p>
    </div>
 
 
-    <img src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='h-[100%] w-full object-cover object-top'></img>
+    <img src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='lg:h-[100%] h-[200px] w-full lg:object-cover lg:object-top object-contain'></img>
 </div>
   )
 }
@@ -69,7 +69,7 @@ function AIBoardSection(){
   return(
   <Container className='ai-model mb-10'>
                 <small className='text-gray-500 uppercase font-bold'>Try out my ai chat</small>
-                <h2 className='text-2xl'>LLM Integration</h2>
+                <h2 className='text-2xl font-black'>AI Integration</h2>
                               <p>LLM was intergrated in this website, xAi specifically, I chose this ai and model because the mode at which the model was been trained and was properly supervised and does not contain any inadequate data, therefore for the output are nature and precise; not 100%, but atleast 99.9%: says <b>"Elon Musk"</b></p>
                   <PrimaryButton className={"bg-amber-50 text-black rounded-sm font-normal text-sm p-1"} to={"/ai"} onClick={()=> navigate("/ai")}>Start Chatting!</PrimaryButton>
               
@@ -88,7 +88,7 @@ function VisionBoard() {
   return(
     <Container className='vision bg-black rounded-md'>
     <div>
-      <h2>Vision</h2>
+      <h2 className='text-2xl font-black'>Vision</h2>
       <small className='mini-subhead'>Information about the vision yet to be made.</small>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ab error animi nam exercitationem nihil veniam neque accusamus doloremque, quidem reprehenderit voluptatibus, suscipit repellendus, reiciendis eos delectus officia dolore consectetur?</p>
     </div>

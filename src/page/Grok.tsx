@@ -47,14 +47,14 @@ export default function Grok() {
   }, [count]); // remove the values within the input field.
 
   return (
-    <main className="bg-black p-10 h-dvh">
-        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] p-10 border-1 relative">
+    <main className="lg:bg-black sm:bg-white p-10 h-dvh flex items-center justify-center">
+        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] sm:rounded-sm lg:border-1 relative">
         {
           !load ? "": <Loading/>
         }
-        <div className='bg-white h-[60dvh] p-5 rounded-sm'>
+        <div className='bg-white lg:h-[60dvh] lg:w-full w-dvw h-[80dvh] p-5 rounded-sm'>
           <h3 className='lg:text-9xl text-6xl uppercase text-black font-black'>grok:</h3>
-    <div className="lg:h-3/5 overflow-y-auto">
+    <div className="lg:h-3/5 h-4/6 overflow-y-auto">
       {
          state.map((item, i) => (
 

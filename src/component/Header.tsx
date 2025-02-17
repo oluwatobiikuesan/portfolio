@@ -35,12 +35,12 @@ export default function Header() {
             <div><Link style={{color: "unset", font: "unset"}} to={"/"}>
             <h4>xdoodle</h4>
             </Link></div>
-            <nav>
-                <div className='dropdown-container flex-row flex'>
+            <nav> 
+                <div className='dropdown-container relative group flex-row flex'>
                     <div className='lg:hidden visible'><span className="material-symbols-outlined">menu
               </span></div>
-                    <div className='content'>
-                        <ul>
+                    <div className='content hidden group-hover:visible'>
+                        <ul className='flex flex-col absolute top-10 -left-20 w-full z-10 group-hover:visible'>
                           {
                             headerPageAddress.map((items, index) => (
                              <HeaderLink to={items.name} key={index}>{items.name}</HeaderLink>
