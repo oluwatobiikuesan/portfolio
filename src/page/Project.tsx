@@ -30,7 +30,7 @@ const projectData: projectInterface []= [
   },
 ]
 
-export default function Work() {
+export default function Project() {
   return (
     <div className="w-dvw min-h-dvh">
       <div className="bg-black min-h-dvh">

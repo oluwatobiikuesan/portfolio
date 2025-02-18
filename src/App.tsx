@@ -6,7 +6,7 @@ import Home from './page/Home'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import Contact from './page/Contact'
-import Work from './page/Project'
+import Project from './page/Project'
 import { Suspense } from 'react'
 import Loading from './page/Loading'
 
@@ -22,7 +22,7 @@ function App() {
       <Route index element={<Home/>}></Route>
       <Route path='/home' element={<Home/>}></Route>
       <Route path='/ai' element={<Grok/>}></Route>
-      <Route path='/project' element={<Work/>}></Route>
+      <Route path='/project' element={<Project/>}></Route>
       <Route path='/contact' element={<Contact/>}></Route>
       </Route>
     </Routes>

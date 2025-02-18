@@ -69,7 +69,7 @@ function AIBoardSection(){
   return(
   <Container className='ai-model mb-10'>
                 <small className='text-gray-500 uppercase font-bold'>Try out my ai chat</small>
-                <h2 className='text-2xl font-black'>AI Integration</h2>
+                <h2 className='text-5xl font-black'>AI Integration</h2>
                               <p>LLM was intergrated in this website, xAi specifically, I chose this ai and model because the mode at which the model was been trained and was properly supervised and does not contain any inadequate data, therefore for the output are nature and precise; not 100%, but atleast 99.9%: says <b>"Elon Musk"</b></p>
                   <PrimaryButton className={"bg-amber-50 text-black rounded-sm font-normal text-sm p-1"} to={"/ai"} onClick={()=> navigate("/ai")}>Start Chatting!</PrimaryButton>
               
@@ -84,11 +84,10 @@ function AIBoardSection(){
 
 
 function VisionBoard() {
-
   return(
     <Container className='vision bg-black rounded-md'>
     <div>
-      <h2 className='text-2xl font-black'>Vision</h2>
+      <h2 className='text-5xl font-black'>Vision</h2>
       <small className='mini-subhead'>Information about the vision yet to be made.</small>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ab error animi nam exercitationem nihil veniam neque accusamus doloremque, quidem reprehenderit voluptatibus, suscipit repellendus, reiciendis eos delectus officia dolore consectetur?</p>
     </div>
