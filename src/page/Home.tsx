@@ -44,7 +44,7 @@ function WelcomePage(){
 
      <p className='text-pretty lg:w-[90%] text-center lg:pl-5 lg:pr-5'>I am very passionate about technological advancement, obsession with developing tools and innovation to make business process easier and enhance individual quality of life. <mark>This is my mission.</mark></p>
     <p className='text-center items-center justify-center flex pt-10'>
-      <Link to='/project' className='text-purple-700'>View Project &gt;</Link>
+      <Link to='project' className='text-purple-700'>View Project &gt;</Link>
     </p>
    </div>
 

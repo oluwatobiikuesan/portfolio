@@ -47,8 +47,8 @@ export default function Grok() {
   }, [count]); // remove the values within the input field.
 
   return (
-    <main className="lg:bg-black sm:bg-white p-10 h-dvh flex items-center justify-center">
-        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] sm:rounded-sm lg:border-1 relative">
+    <main className="lg:bg-white sm:bg-white p-10 h-dvh flex items-center justify-center">
+        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] sm:rounded-sm lg:border-0 relative">
         {
           !load ? "": <Loading/>
         }
