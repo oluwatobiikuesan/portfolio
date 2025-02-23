@@ -1,6 +1,7 @@
 // import { Link } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import '../style/header.css'
+import { useState } from 'react'
 
 
 
@@ -29,38 +30,40 @@ const headerPageAddress : headerLinkInterface[] = [
 
 
 export default function Header() {
-  return (
-    
-    <header className='header md:w-full'>
-            <div><Link style={{color: "unset", font: "unset"}} to={"/"}>
-            <h4>xdoodle</h4>
-            </Link></div>
-            <nav> 
-                <div className='dropdown-container relative group flex-row flex'>
-                    <div className='lg:hidden visible'><span className="material-symbols-outlined">menu
-              </span></div>
-                    <div className='content hidden group-hover:visible'>
-                        <ul className='flex flex-col absolute top-10 -left-20 w-full z-10 group-hover:visible'>
-                          {
-                            headerPageAddress.map((items, index) => (
-                             <HeaderLink to={items.name} key={index}>{items.name}</HeaderLink>
-                            ))
-                          }
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-    </header>
-  )
-}
+  const [isOpen, setIsOpen] = useState(false);
 
-<Link className='o-link' to={"/home"}>home</Link>
+  return (  
+    <header className="header md:w-full bg-gray-900 text-white">
+    <div>
+      <Link style={{ color: "unset", font: "unset" }} to="/">
+        <h4>xdoodle</h4>
+      </Link>
+    </div>
 
+    {/* Navigation */}
+    <nav className="relative group flex-row flex">
+      {/* Mobile Menu Toggle Button */}
+      <div className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <span className="material-symbols-outlined cursor-pointer">menu</span>
+      </div>
 
-const HeaderLink = ({to, children} : any) => {
-  return(
-    <Link to={to} className='hover:bg-white transition-all pl-5 pr-5 hover:text-black rounded-sm'>
-      {children}
-    </Link>
+      {/* Dropdown Menu */}
+      <div
+        className={`${
+          isOpen ? "block transition-all duration-500" : "hidden"
+        } lg:block absolute lg:relative z-10 lg:z-auto right-0 top-10 lg:top-0 
+          w-screen lg:w-fit h-fit bg-white lg:bg-black text-black lg:text-white 
+          transition-all duration-500`}
+      >
+        <ul className="flex flex-col lg:flex-row uppercase p-5">
+          {headerPageAddress.map((items, index) => (
+            <li key={index} className="p-2 hover:bg-white hover:text-black hover:transition-all duration-100 w-full text-xs lg:pr-5 lg:pl-5">
+              <Link to={items.name}>{items.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  </header>
   )
 }

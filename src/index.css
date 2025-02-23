@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Poppins;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -10,32 +10,10 @@
 *{
   padding: 0 auto;
   margin: 0 auto;
-  box-sizing: border-box;
-  outline:unset;
 }
-p, a, li{
-  font-size: 13.5px;
-  font-family: Poppins;
+p{
+  font-family: Noto Sans;
 }
-button{
-  cursor: pointer;
-}
-h1,h2,h3,h4,h5,h6{
+h1,h2,h3, h4, h5{
   font-family: Montserrat;
-}
-ul, li,a{
-  text-decoration: none;
-  list-style-type: none;
-}
-.full-s{
-  height: 100dvh;
-}
-.half-s{
-  min-height: 50dvh;
-}
-.quart-s{
-  min-height: 25dvh;
-}
-.highlight {
-  color: var(--secondary-color);
 }

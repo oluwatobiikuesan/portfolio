@@ -48,19 +48,19 @@ export default function Grok() {
 
   return (
     <main className="lg:bg-white sm:bg-white p-10 h-dvh flex items-center justify-center">
-        <div className="lg:max-h-[90%] lg:h-[90%] lg:w-[50dvw] sm:rounded-sm lg:border-0 relative">
+        <div className="lg:max-h-[90dvh] lg:h-[100%] lg:w-[40dvw] sm:rounded-sm lg:border-0 relative">
         {
           !load ? "": <Loading/>
         }
         <div className='bg-white lg:h-[60dvh] lg:w-full w-dvw h-[80dvh] p-5 rounded-sm'>
-          <h3 className='lg:text-9xl text-6xl uppercase text-black font-black'>grok:</h3>
+          <h3 className='lg:text-5xl text-3xl uppercase text-thin lg:font-medium'>grok:</h3>
     <div className="lg:h-3/5 h-4/6 overflow-y-auto">
       {
          state.map((item, i) => (
 
           <p key={i} className='text-white-100 w-full p-2 text-left flex'>
           <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='h-2' height={10}></img></span>
-          <span className='text-black w-full p-2'>
+          <span className='text-black w-full p-2 lg:text-sm text-xs'>
           {
           item.text.split("/^[#]+|[#]+$/").join("")
           }
@@ -83,10 +83,10 @@ export default function Grok() {
     </div>
     <div className="flex items-center gap-0.5">
 
-    <span className='w-full'><input tabIndex={1} ref={userMessage} className='bg-white p-2 w-full rounded-sm border-2' type="text" placeholder='Let&apos;s chat..'/></span>
+    <span className='w-full'><input tabIndex={1} ref={userMessage} className='bg-white p-2 w-full rounded-sm border-1 text-[16px]' type="text" placeholder='Let&apos;s chat..'/></span>
 
 
-      <button className='h-full w-10 bg-white rounded-sm' tabIndex={2} type='button'><img className='object-contain' src='\icons\text.png' onClick={() =>{
+      <button className='h-full w-10 bg-white rounded-sm' tabIndex={2} type='button'><img className='object-contain opacity-60 -rotate-90 h-[30px]' src='\icons\text.png' onClick={() =>{
       requestMessage(userMessage, {setState}, {count, setCount, setLoader});
       userMessage.current.value == "";
     }
