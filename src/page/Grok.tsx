@@ -69,13 +69,7 @@ export default function Grok() {
         
          ))
       }
-    {/* <p>
-        <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='round' height={10}></img></span>
-        <span>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea veritatis quibusdam quasi eveniet non deleniti ex, voluptatibus consectetur corporis fugit saepe. Reiciendis consequuntur quaerat ea. Similique accusamus doloremque possimus voluptate!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni voluptas nobis repellat fuga corporis soluta aliquid reiciendis praesentium eos nesciunt dolore, molestiae officiis at labore tenetur molestias dolorem delectus illo!
-        </span>
-      </p> */}
+      
     </div>
     <div className='instruction'>
       <p className='instruction'>

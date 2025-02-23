@@ -25,9 +25,7 @@ const headerPageAddress : headerLinkInterface[] = [
       name: "contact",
       address: "contact"
     }
-]
-
-
+];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);

@@ -7,14 +7,15 @@ import Header from './component/Header'
 import Footer from './component/Footer'
 import Contact from './page/Contact'
 import Project from './page/Project'
-import { Suspense } from 'react'
+import { Fragment, Suspense, useState } from 'react'
 import Loading from './page/Loading'
 
 
 function App() {
+  const [isState] = useState(false);
   return (
-    <div>
-      
+    <Fragment>
+     {isState ? "" :  <p className='text-xs p-2 bg-amber-300 text-black'>Under Development</p>}
       <Suspense fallback={<Loading/>}>
       <Header/>
     <Routes>
@@ -29,7 +30,7 @@ function App() {
    
     <Footer/>
     </Suspense>
-    </div>
+    </Fragment>
   )
 }
 
