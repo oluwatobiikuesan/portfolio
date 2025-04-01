@@ -4,11 +4,11 @@ import '../style/header.css'
 import { useState } from 'react'
 
 
-
 interface headerLinkInterface  {
   name: string
   address: string
 }
+
 const headerPageAddress : headerLinkInterface[] = [
     {name: "home",
       address: "home"
@@ -27,18 +27,16 @@ const headerPageAddress : headerLinkInterface[] = [
     }
 ];
 
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (  
-    <header className="header md:w-full bg-gray-900 text-white">
-    <div>
-      <Link style={{ color: "unset", font: "unset" }} to="/">
-        <h4>xdoodle</h4>
-      </Link>
+    <header className="md:w-full text-white lg:sticky sticky z-10 lg:top-0 lg:z-10 h-[60px]">
+    <div className='ml-0'>
+      <Link to={"/"} className='uppercase'>xdoodle</Link>
     </div>
 
-    {/* Navigation */}
     <nav className="relative group flex-row flex">
       {/* Mobile Menu Toggle Button */}
       <div className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -53,9 +51,9 @@ export default function Header() {
           w-screen lg:w-fit h-fit bg-white lg:bg-black text-black lg:text-white 
           transition-all duration-500`}
       >
-        <ul className="flex flex-col lg:flex-row uppercase p-5">
+        <ul className="flex flex-col lg:flex-row uppercase">
           {headerPageAddress.map((items, index) => (
-            <li key={index} className="p-2 hover:bg-white hover:text-black hover:transition-all duration-100 w-full text-xs lg:pr-5 lg:pl-5">
+            <li key={index} className="hover:bg-white hover:text-black hover:transition-all duration-100 w-full text-xs lg:pr-5 lg:pl-5">
               <Link to={items.name}>{items.name}</Link>
             </li>
           ))}

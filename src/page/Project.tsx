@@ -34,8 +34,8 @@ export default function Project() {
   return (
     <div className="w-dvw min-h-dvh">
       <div className="bg-black min-h-dvh">
-        <h3 className="text-white text-8xl p-10">Project Space</h3>
-        <div className="w-full grid lg:grid-cols-3 grid-cols-2">
+        <h3 className="text-white lg:text-8xl p-10 text-center font-black">Project Space</h3>
+        <div className="grid lg:grid-cols-4 grid-cols-2 lg:w-[75dvw] lg:gap-10, m-0">
           { 
             projectData.map((items, index) => (
               <ProjectTab link={items.link} root={index % 2 == 0 ? "hover:rotate-1" : "hover:-rotate-1"} title={items.title} image={items.image} desc={items.desc} key={index} />

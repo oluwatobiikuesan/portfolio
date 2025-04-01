@@ -350,6 +350,7 @@
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --animate-bounce: bounce 1s infinite;
+    --animate-moveslider: movesilder 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --blur-xs: 4px;
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -610,6 +611,10 @@ ul, li,a {
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+@keyframes movesilder {
+  0%{left: 0;};
+  100%{right: 0;};
 }
 @property --tw-rotate-x {
   syntax: "*";
