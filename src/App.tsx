@@ -2,8 +2,6 @@ import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Grok from './page/Grok'
 import Home from './page/Home'
-import Header from './component/header'
-import Footer from './component/footer'
 import Contact from './page/Contact'
 import Project from './page/Project'
 import { Fragment, Suspense, useState } from 'react'
@@ -26,7 +24,6 @@ function App() {
       <Route path='contact' element={<Contact/>}></Route>
       </Route>
     </Routes>
-    <Footer/>
     </Suspense>
     </Fragment>
   )

@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
 import '../style/layout.css'
-import Header from '../component/header'
+import Footer from '../component/Footer'
+import Header from '../component/Header'
 
 type headerLinkInterface ={
   name: string,
@@ -27,6 +28,7 @@ export default function Layout() {
         </nav>
       </div>
         <div className='w-full'><Outlet/></div>
+        <Footer/>
     </div>
   )
 }

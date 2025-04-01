@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import '../style/header.css'
 import { useState } from 'react'
 
-
 interface headerLinkInterface  {
   name: string
   address: string

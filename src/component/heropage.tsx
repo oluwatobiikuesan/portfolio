@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Aurora from "./ui/aurora/Aurora";
-import FallingText from "./ui/fallingtext/FallingText";
 
 export default function HeroPage() {
-    let windomHeight = window.innerHeight;
+    // let windomHeight = window.innerHeight;
     let windowWidth = window.innerWidth;
     let randomindex = Math.floor(Math.random() * (windowWidth * 80 / 100));
-    const [randIndex, setRandIndex] = useState<number>(randomindex);
+    // const [randIndex, setRandIndex] = useState<number>(randomindex);
     const [bounceCount, setBounceCount] = useState(0);
   
     useEffect(() => {
@@ -18,7 +17,7 @@ export default function HeroPage() {
   
     useEffect(() => {
       setTimeout(()=>{
-       setRandIndex(randomindex); 
+      //  setRandIndex(randomindex); 
       },2000)
     }, [randomindex])
   
