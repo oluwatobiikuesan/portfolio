@@ -1,6 +1,7 @@
+
 interface projectInterface {
   title: string
-  image: any | React.DetailedHTMLProps<React.ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>
+  image: any
   desc: string
   link?: string
   root?: any
@@ -16,8 +17,7 @@ const projectData: projectInterface []= [
     image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     desc: "Lorem Ipsum is a desigin ee"
   },
-  {title: "Hashtag Extractor",
-    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {title: "Hashtag Extractor",    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     desc: "Lorem Ipsum is a desigin ee"
   },
   {title: "Local Email Sorter",
