@@ -1,6 +1,5 @@
 // import { Link } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import '../style/header.css'
 import { useState } from 'react'
 
 interface headerLinkInterface  {
@@ -30,8 +29,8 @@ const headerPageAddress : headerLinkInterface[] = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
-  return (  
-    <header className="md:w-full text-white lg:sticky sticky z-10 lg:top-0 lg:z-10 h-[60px]">
+  return (
+    <header className="sticky top-0 z-10 flex h-16 w-full items-center justify-between bg-white px-4 text-gray-900 border-b">
     <div className='ml-0'>
       <Link to={"/"} className='uppercase'>xdoodle</Link>
     </div>
@@ -45,14 +44,15 @@ export default function Header() {
       {/* Dropdown Menu */}
       <div
         className={`${
-          isOpen ? "block transition-all duration-500" : "hidden"
-        } lg:block absolute lg:relative z-10 lg:z-auto right-0 top-10 lg:top-0 
-          w-screen lg:w-fit h-fit bg-white lg:bg-black text-black lg:text-white 
-          transition-all duration-500`}
+          isOpen ? "block" : "hidden"
+        } lg:block absolute lg:relative right-0 top-14 lg:top-0 w-screen lg:w-fit bg-white text-gray-900 lg:bg-transparent transition-all duration-300`}
       >
         <ul className="flex flex-col lg:flex-row uppercase">
           {headerPageAddress.map((items, index) => (
-            <li key={index} className="hover:bg-white hover:text-black hover:transition-all duration-100 w-full text-xs lg:pr-5 lg:pl-5">
+            <li
+              key={index}
+              className="w-full px-4 py-2 text-xs hover:text-blue-600 lg:px-5"
+            >
               <Link to={items.name}>{items.name}</Link>
             </li>
           ))}
