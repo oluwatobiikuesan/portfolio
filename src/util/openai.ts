@@ -1,21 +1,12 @@
 import OpenAI from "openai";
+
+// Warning: Storing API keys in client-side code is not secure.
+// In a real production app, you should use a backend proxy.
+// For this portfolio demo, we are using an environment variable or placeholder.
+// Note: The key below is a placeholder or needs to be provided via environment variables.
+
 export const openai = new OpenAI({
-  apiKey: "xai-wRgpuj21rA1Uaa4gPkYGhZ0HJ80FucxwqT1PA2kszI4V7ino6owwCB1Q5iqWlIxXqCEKFgyNvbg0zsdS",
+  apiKey: import.meta.env.VITE_XAI_API_KEY || "YOUR_API_KEY_HERE",
   baseURL: "https://api.x.ai/v1",
   dangerouslyAllowBrowser: true
 });
-
-
-
-// const completion = await openai.chat.completions.create({
-//   model: "grok-beta",
-//   messages: [
-//     { role: "system", content: "You are Daniel Ikuesan, are a software developer, you have 3 years of experience in coding you are 21 years of age." },
-//     {
-//       role: "user",
-//       content: "How old are you?",
-//     },
-//   ],
-// });
-
-// console.log(completion.choices[0].message.content);

@@ -105,7 +105,7 @@ export default function Grok() {
           {loading && (
              <div className="flex justify-start w-full">
                 <div className="bg-slate-800 p-4 rounded-2xl rounded-tl-sm border border-white/5">
-                    <Loading />
+                    <Loading fullScreen={false} className="py-2" />
                 </div>
              </div>
           )}

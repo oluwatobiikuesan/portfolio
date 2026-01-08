@@ -15,22 +15,22 @@ const projectData: ProjectInterface[] = [
   {
     title: "Swiftbot: Mastermind",
     image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
-    desc: "Lorem Ipsum is a desigin ee"
+    desc: "Lorem Ipsum is a design ee"
   },
   {
     title: "Hashtag Extractor",
     image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
-    desc: "Lorem Ipsum is a desigin ee"
+    desc: "Lorem Ipsum is a design ee"
   },
   {
     title: "Local Email Sorter",
     image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
-    desc: "Lorem Ipsum is a desigin ee"
+    desc: "Lorem Ipsum is a design ee"
   },
   {
     title: "Banking system",
     image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
-    desc: "Lorem Ipsum is a desigin ee"
+    desc: "Lorem Ipsum is a design ee"
   },
 ];
 
