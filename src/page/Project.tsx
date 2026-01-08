@@ -1,60 +1,97 @@
-
-interface projectInterface {
-  title: string
-  image: any
-  desc: string
-  link?: string
-  root?: any
+interface ProjectInterface {
+  title: string;
+  image: string;
+  desc: string;
+  link?: string;
 }
 
-const projectData: projectInterface []= [
-  {title: "Swiftbot",
-    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    desc: "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sodales mauris quam, ac ornare lacus bibendum in. Suspendisse volutpat augue in mauris pellentesque, non suscipit tellus malesuada. Aliquam erat volutpat. Nulla scelerisque sollicitudin porttitor. Ut ac mi id lacus tempus vulputate. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam aliquet turpis a erat dignissim, vel mollis enim ultrices. Curabitur nec quam vel nibh tristique semper eget at dui. Vestibulum vel hendrerit orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse ante neque, scelerisque ac hendrerit et, tincidunt vitae sapien. Nulla eget egestas tellus, sit amet interdum eros. Donec consectetur libero sed mi vestibulum, id volutpat enim molestie. Aliquam non vehicula sapien. Donec nec dictum ipsum. Suspendisse potenti. ",
+const projectData: ProjectInterface[] = [
+  {
+    title: "Swiftbot",
+    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
+    desc: "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...",
     link: "https://google.com"
   },
-  {title: "Swiftbot: Mastermind",
-    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {
+    title: "Swiftbot: Mastermind",
+    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
     desc: "Lorem Ipsum is a desigin ee"
   },
-  {title: "Hashtag Extractor",    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {
+    title: "Hashtag Extractor",
+    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
     desc: "Lorem Ipsum is a desigin ee"
   },
-  {title: "Local Email Sorter",
-    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {
+    title: "Local Email Sorter",
+    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
     desc: "Lorem Ipsum is a desigin ee"
   },
-  {title: "Banking system application",
-    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  {
+    title: "Banking system",
+    image: "https://images.unsplash.com/photo-1739641375724-dfea74e0df69?q=80&w=1974&auto=format&fit=crop",
     desc: "Lorem Ipsum is a desigin ee"
   },
-]
+];
 
 export default function Project() {
   return (
-    <div className="w-dvw min-h-dvh">
-      <div className="bg-black min-h-dvh">
-        <h3 className="text-white lg:text-8xl p-10 text-center font-black">Project Space</h3>
-        <div className="grid lg:grid-cols-4 grid-cols-2 lg:w-[75dvw] lg:gap-10, m-0">
-          { 
-            projectData.map((items, index) => (
-              <ProjectTab link={items.link} root={index % 2 == 0 ? "hover:rotate-1" : "hover:-rotate-1"} title={items.title} image={items.image} desc={items.desc} key={index} />
-            ))
-          }
+    <div className="min-h-screen w-full bg-slate-950 pt-20 pb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-16 text-center tracking-tight">
+          Selected Projects
+        </h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projectData.map((item, index) => (
+            <ProjectTab
+              key={index}
+              title={item.title}
+              image={item.image}
+              desc={item.desc}
+              link={item.link}
+            />
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
+const ProjectTab = ({ title, image, link, desc }: ProjectInterface) => {
+  return (
+    <div className="group bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-900/20 transition-all duration-300 flex flex-col h-full">
+      <div className="h-48 overflow-hidden relative">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60"></div>
+      </div>
 
-const ProjectTab = ({title, image, link, desc, root}: projectInterface) => {
-  return(
-    <div className={`scale-90 project_item lg:w-[300px] w-[200px] p-2 bg-white rounded-sm cursor-pointer ${root}`}>
-    <img src={image} className="w-full h-[100px] object-cover object-center"></img>
-    <h5 className="text-black font-bold text-sm pt-1.5 uppercase">{title}</h5>
-    <a href={link} className="text-purple-600">visit link &gt;</a>
-    <p className="text-black-100 max-h-[150px] overflow-hidden text-[10px]">{desc}</p>
-  </div>
-  )
-}
+      <div className="p-6 flex flex-col flex-grow">
+        <h5 className="text-white font-bold text-xl mb-3 tracking-tight">{title}</h5>
+        <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+          {desc}
+        </p>
+
+        <div className="mt-auto pt-4 border-t border-white/5">
+            {link ? (
+                 <a
+                 href={link}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="inline-flex items-center text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors"
+               >
+                 View Project <span className="ml-1 text-xs">&rarr;</span>
+               </a>
+            ) : (
+                <span className="text-slate-600 text-sm cursor-not-allowed">Coming Soon</span>
+            )}
+
+        </div>
+      </div>
+    </div>
+  );
+};

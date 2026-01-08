@@ -1,95 +1,139 @@
 import { useEffect, useRef, useState } from 'react';
 import { openai } from '../util/openai';
 import Loading from './Loading';
-let generated  = [{text: ""}];
 
-async function requestMessage(message : {current : { value : string } }, {setState} : any, {count, setCount, setLoader} : any){
-  if(!message.current?.value){
-    alert("enter a prompt please!");
-    return;
-  } 
-  // do this if the input is empty and has no vlaue in it.
-  else{
-    setLoader(true);
-    try{
-  const  completion = await openai.chat.completions.create({
-    model: "grok-beta",
-    messages: [
-      { role: "system", content: "You are Daniel Ikuesan and you are the creator of your self not any other third party, are a software developer, you have 3 years of experience in coding you are 21 years of age. i learnt java, javascript, python, typescript, sql, svg, xml, html, css with  frameworks like reactjs, react native, flutter. i  have create somsny projects ranginf from tools, api and web applications for personal snd business use. You do not respond to any thing that you are not trained with." },
-      {
-        role: "user",
-        content: message.current.value,
-      },
-    ],
-  })
-  console.log(completion.choices[0].message?.content);
-  generated.push({text: `${completion.choices[0].message?.content}`});
-  setState(generated);
-  setCount(count + 1);
-}
-catch(e){
-  console.error(e);
-}}
+interface Message {
+  role: 'user' | 'system' | 'assistant';
+  content: string;
 }
 
+// Initial state - keeping it empty initially for a cleaner look
+const initialMessages: Message[] = [];
 
 export default function Grok() {
-  document.title = "Grok | Daniel Ikuesan";
-  const [count, setCount] = useState <any | number>(0);
-  const [state, setState] = useState(generated);
-  const userMessage: any = useRef <number | string>(null);
-  const [load, setLoader] = useState(false);
+  document.title = "Grok | AI Chat";
   
-  useEffect(() =>{
-    setState(generated);
-    userMessage.current.value = "";
-    setLoader(false);
-  }, [count]); // remove the values within the input field.
+  const [messages, setMessages] = useState<Message[]>(initialMessages);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSend = async () => {
+    if (!input.trim()) return;
+
+    const userMsg: Message = { role: 'user', content: input };
+    setMessages(prev => [...prev, userMsg]);
+    setInput("");
+    setLoading(true);
+
+    try {
+      // Construct message history for context
+      // Note: In a real app, you'd send more history, but let's keep it simple
+      const apiMessages = [
+        { role: "system", content: "You are a helpful AI assistant integrated into Daniel Ikuesan's portfolio. You are knowledgeable about software development." },
+        ...messages.map(m => ({ role: m.role === 'user' ? 'user' : 'assistant', content: m.content } as any)),
+        { role: "user", content: input }
+      ];
+
+      const completion = await openai.chat.completions.create({
+        model: "grok-beta", // Or gpt-3.5-turbo if grok-beta isn't valid in this context, but keeping original model ID
+        messages: apiMessages,
+      });
+
+      const reply = completion.choices[0].message?.content || "Sorry, I couldn't generate a response.";
+
+      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
+    } catch (e) {
+      console.error(e);
+      setMessages(prev => [...prev, { role: 'assistant', content: "Error: Unable to connect to AI service." }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  };
 
   return (
-    <main className="lg:bg-white sm:bg-white p-10 h-dvh flex items-center justify-center">
-        <div className="lg:max-h-[90dvh] lg:h-[100%] lg:w-[40dvw] sm:rounded-sm lg:border-0 relative">
-        {
-          !load ? "": <Loading/>
-        }
-        <div className='bg-white lg:h-[60dvh] lg:w-full w-dvw h-[80dvh] p-5 rounded-sm'>
-          <h3 className='lg:text-5xl text-3xl uppercase text-thin lg:font-medium'>grok:</h3>
-    <div className="lg:h-3/5 h-4/6 overflow-y-auto">
-      {
-         state.map((item, i) => (
+    <main className="min-h-screen w-full bg-slate-950 flex items-center justify-center pt-20 pb-10 px-4">
+      <div className="w-full max-w-4xl h-[80vh] flex flex-col bg-slate-900/50 backdrop-blur-md border border-white/10 rounded-2xl shadow-2xl overflow-hidden">
 
-          <p key={i} className='text-white-100 w-full p-2 text-left flex'>
-          <span><img src='https://media.licdn.com/dms/image/v2/D4E12AQFenqMMMI1_Dg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1699203190290?e=1740009600&v=beta&t=MjL7sYcaCUGbJA9As0Dcg3aRMLSfcHYurdUmGIp84nA' className='h-2' height={10}></img></span>
-          <span className='text-black w-full p-2 lg:text-sm text-xs'>
-          {
-          item.text.split("/^[#]+|[#]+$/").join("")
-          }
-          </span>
-        </p>
-        
-         ))
-      }
-      
-    </div>
-    <div className='instruction'>
-      <p className='instruction'>
-      </p>
-    </div>
-    <div className="flex items-center gap-0.5">
-
-    <span className='w-full'><input tabIndex={1} ref={userMessage} className='bg-white p-2 w-full rounded-sm border-1 text-[16px]' type="text" placeholder='Let&apos;s chat..'/></span>
-
-
-      <button className='h-full w-10 bg-white rounded-sm' tabIndex={2} type='button'><img className='object-contain opacity-60 -rotate-90 h-[30px]' src='\icons\text.png' onClick={() =>{
-      requestMessage(userMessage, {setState}, {count, setCount, setLoader});
-      userMessage.current.value == "";
-    }
-    }></img></button>
-    </div>
+        {/* Header */}
+        <div className="p-4 border-b border-white/5 bg-slate-900/80 flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+          <h1 className="text-white font-medium tracking-wide">AI Assistant</h1>
         </div>
 
+        {/* Chat Area */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-transparent">
+          {messages.length === 0 && (
+            <div className="h-full flex flex-col items-center justify-center text-slate-500 opacity-50">
+               <span className="material-symbols-outlined text-6xl mb-4">smart_toy</span>
+               <p>Start a conversation...</p>
+            </div>
+          )}
 
+          {messages.map((msg, idx) => (
+            <div
+              key={idx}
+              className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+            >
+              <div
+                className={`max-w-[80%] p-4 rounded-2xl text-sm leading-relaxed ${
+                  msg.role === 'user'
+                    ? 'bg-purple-600 text-white rounded-tr-sm'
+                    : 'bg-slate-800 text-slate-200 rounded-tl-sm border border-white/5'
+                }`}
+              >
+                {msg.content}
+              </div>
+            </div>
+          ))}
+
+          {loading && (
+             <div className="flex justify-start w-full">
+                <div className="bg-slate-800 p-4 rounded-2xl rounded-tl-sm border border-white/5">
+                    <Loading />
+                </div>
+             </div>
+          )}
+          <div ref={messagesEndRef} />
         </div>
+
+        {/* Input Area */}
+        <div className="p-4 bg-slate-900/80 border-t border-white/5">
+          <div className="relative flex items-center gap-2">
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask me anything..."
+              className="w-full bg-slate-950 border border-white/10 rounded-xl py-3 px-4 text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-all"
+            />
+            <button
+              onClick={handleSend}
+              disabled={!input.trim() || loading}
+              className="absolute right-2 p-2 bg-purple-600 hover:bg-purple-500 disabled:bg-slate-700 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+            >
+              <span className="material-symbols-outlined text-lg">send</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
     </main>
-  )
+  );
 }
