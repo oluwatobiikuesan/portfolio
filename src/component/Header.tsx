@@ -1,64 +1,93 @@
-// import { Link } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import '../style/header.css'
-import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
-interface headerLinkInterface  {
-  name: string
-  address: string
+interface HeaderLink {
+  name: string;
+  address: string;
 }
 
-const headerPageAddress : headerLinkInterface[] = [
-    {name: "home",
-      address: "home"
-    },
-    {
-      name: "project",
-      address: "project"
-    },
-    {
-      name: "ai",
-      address: "ai"
-    },
-    {
-      name: "contact",
-      address: "contact"
-    }
+const headerPageAddress: HeaderLink[] = [
+  { name: "Home", address: "/" },
+  { name: "Projects", address: "/project" },
+  { name: "AI / Grok", address: "/ai" },
+  { name: "Contact", address: "/contact" }
 ];
-
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  return (  
-    <header className="md:w-full text-white lg:sticky sticky z-10 lg:top-0 lg:z-10 h-[60px]">
-    <div className='ml-0'>
-      <Link to={"/"} className='uppercase'>xdoodle</Link>
-    </div>
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location]);
 
-    <nav className="relative group flex-row flex">
-      {/* Mobile Menu Toggle Button */}
-      <div className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
-        <span className="material-symbols-outlined cursor-pointer">menu</span>
+  return (
+    <header className="fixed w-full top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-white/5 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="text-xl font-bold tracking-wider text-white hover:text-purple-400 transition-colors">
+              XDOODLE
+            </Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex space-x-8">
+            {headerPageAddress.map((item, index) => {
+              const isActive = location.pathname === item.address || (item.address !== "/" && location.pathname.startsWith(item.address));
+              return (
+                <Link
+                  key={index}
+                  to={item.address}
+                  className={`text-sm uppercase tracking-widest font-medium transition-colors duration-200
+                    ${isActive ? 'text-purple-400' : 'text-slate-300 hover:text-white'}`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-slate-300 hover:text-white focus:outline-none p-2"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                 <span className="material-symbols-outlined text-2xl">close</span>
+              ) : (
+                <span className="material-symbols-outlined text-2xl">menu</span>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Dropdown Menu */}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`${
-          isOpen ? "block transition-all duration-500" : "hidden"
-        } lg:block absolute lg:relative z-10 lg:z-auto right-0 top-10 lg:top-0 
-          w-screen lg:w-fit h-fit bg-white lg:bg-black text-black lg:text-white 
-          transition-all duration-500`}
+        className={`lg:hidden fixed inset-0 z-40 bg-slate-950/95 backdrop-blur-xl transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ top: '64px' }} // Below header
       >
-        <ul className="flex flex-col lg:flex-row uppercase">
-          {headerPageAddress.map((items, index) => (
-            <li key={index} className="hover:bg-white hover:text-black hover:transition-all duration-100 w-full text-xs lg:pr-5 lg:pl-5">
-              <Link to={items.name}>{items.name}</Link>
-            </li>
-          ))}
-        </ul>
+        <nav className="flex flex-col items-center justify-center h-full space-y-8">
+          {headerPageAddress.map((item, index) => {
+             const isActive = location.pathname === item.address || (item.address !== "/" && location.pathname.startsWith(item.address));
+             return (
+            <Link
+              key={index}
+              to={item.address}
+              className={`text-2xl font-light uppercase tracking-widest transition-colors ${isActive ? 'text-purple-400' : 'text-slate-300 hover:text-white'}`}
+            >
+              {item.name}
+            </Link>
+          )})}
+        </nav>
       </div>
-    </nav>
-  </header>
-  )
+    </header>
+  );
 }
