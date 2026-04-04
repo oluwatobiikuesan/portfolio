@@ -10,7 +10,7 @@ export default defineConfig({
   },
   server: {
     cors: {
-      origin: "https://xdoodle.onrender.com",
+      origin: process.env.VITE_CORS_ORIGIN || true,
       methods: ['GET', 'POST']
     },
     proxy: {
