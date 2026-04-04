@@ -12,6 +12,12 @@ export default defineConfig({
     cors: {
       origin: "https://xdoodle.onrender.com",
       methods: ['GET', 'POST']
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      }
     }
   }
 })
