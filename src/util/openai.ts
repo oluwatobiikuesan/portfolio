@@ -1,21 +1,21 @@
-import OpenAI from "openai";
-export const openai = new OpenAI({
-  apiKey: "xai-wRgpuj21rA1Uaa4gPkYGhZ0HJ80FucxwqT1PA2kszI4V7ino6owwCB1Q5iqWlIxXqCEKFgyNvbg0zsdS",
-  baseURL: "https://api.x.ai/v1",
-  dangerouslyAllowBrowser: true
-});
+// API calls are proxied through the server-side /api/chat endpoint so that
+// the xAI API key is never exposed in client-side code.
+export const openai = {
+  chat: {
+    completions: {
+      create: async (params: { model: string; messages: Array<{ role: string; content: string }> }) => {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(params),
+        });
 
+        if (!response.ok) {
+          throw new Error(`AI service error: ${response.status} ${response.statusText}`);
+        }
 
-
-// const completion = await openai.chat.completions.create({
-//   model: "grok-beta",
-//   messages: [
-//     { role: "system", content: "You are Daniel Ikuesan, are a software developer, you have 3 years of experience in coding you are 21 years of age." },
-//     {
-//       role: "user",
-//       content: "How old are you?",
-//     },
-//   ],
-// });
-
-// console.log(completion.choices[0].message.content);
+        return response.json();
+      },
+    },
+  },
+};

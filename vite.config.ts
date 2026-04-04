@@ -12,6 +12,12 @@ export default defineConfig({
     cors: {
       origin: process.env.VITE_CORS_ORIGIN || true,
       methods: ['GET', 'POST']
+    },
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      }
     }
   }
 })

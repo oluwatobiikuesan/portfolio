@@ -7,7 +7,5 @@
             {"image": "/socialicons/github-seeklogo.svg", "link": "https://github.com/oluwatobiikuesan"},
             {"image": "/socialicons/LI-In-Bug.png", "link": "https://www.linkedin.com/in/oluwatobiikuesan/"}
         ],
-        "grok-ai": {
-            "apikey": "xai-wRgpuj21rA1Uaa4gPkYGhZ0HJ80FucxwqT1PA2kszI4V7ino6owwCB1Q5iqWlIxXqCEKFgyNvbg0zsdS"
-        }
+        "grok-ai": {}
     }
