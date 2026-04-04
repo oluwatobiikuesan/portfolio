@@ -4,16 +4,14 @@ import Grok from './page/Grok'
 import Home from './page/Home'
 import Contact from './page/Contact'
 import Project from './page/Project'
-import { Fragment, Suspense, useState } from 'react'
+import { Fragment, Suspense } from 'react'
 import Loading from './page/Loading'
 import Layout from './page/Layout'
 
 
 function App() {
-  const [isState] = useState(true);
   return (
     <Fragment>
-     {isState ? "" :  <p className='text-xs p-2 bg-amber-300 text-black'>Under Development</p>}
       <Suspense fallback={<Loading/>}>
     <Routes>
       <Route path="/" element={<Layout/>}>
@@ -28,24 +26,5 @@ function App() {
     </Fragment>
   )
 }
-
-
-//check if the user has accessed the webpage before
-function isAUser(){
-  const userActive = window.localStorage.getItem("user");
-  return userActive;
-}
-
-//record the the user if they are new to using the webpage
-function usersAnalystics(existingUser : any){
-  if(!existingUser){
-    alert("new user alert");
-    window.localStorage.setItem("user", "true");
-  }else {
-    return null;
-  }
-}
-//run test
-usersAnalystics(isAUser);
 
 export default App
