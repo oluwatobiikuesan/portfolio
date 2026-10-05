@@ -25,8 +25,9 @@ The photo is shown in greyscale and fades to full colour on hover, so any photo 
 Everything you see on the page lives in **`src/data/profile.ts`**: name, intro, about text, stats, skills,
 projects, social links and the contact email.
 
-Each project shows as a flip card: the front has the title, company and tags, the back has the summary,
-optional `highlights` (a list of bullet points) and a **Visit site** button when the project has a `link`.
+Each project shows as a flip card. The front has the `category`, title, `summary` and `tags`; the back lists the
+`highlights` (falling back to the summary) and a **Visit site** button when the project has a `link`.
+Projects marked `featured: true` lead the Work section, the rest appear under **More projects**.
 Remember to replace `hello@example.com` with your real address.
 
 ## Design system

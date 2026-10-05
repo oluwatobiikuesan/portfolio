@@ -132,7 +132,7 @@
 @utility text-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  line-height: 1;
+  line-height: 1.5;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }

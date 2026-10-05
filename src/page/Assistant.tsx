@@ -1,12 +1,20 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { openai } from "../util/openai";
-import { profile } from "../data/profile";
+import { profile, projects, skills } from "../data/profile";
 import Icon from "../component/Icon";
 
 interface Message {
   role: "user" | "assistant";
   content: string;
 }
+
+// Gives the assistant enough context to answer questions about the portfolio itself.
+const portfolioContext = [
+  `${profile.firstName} is a ${profile.role}. ${profile.about.join(" ")}`,
+  `Skills: ${skills.map((g) => `${g.group}: ${g.items.join(", ")}`).join("; ")}.`,
+  `Projects: ${projects.map((p) => `${p.title} (${p.category}): ${p.summary}`).join(" ")}`,
+  "Achievement: 2nd place out of 33 teams at UKIEPC, hosted at Brunel University.",
+].join("\n");
 
 const suggestions = ["What does Oluwatobi work on?", "Explain React hooks simply", "Tips for a clean API design"];
 
@@ -39,7 +47,7 @@ export default function Assistant() {
         messages: [
           {
             role: "system",
-            content: `You are a helpful AI assistant on ${profile.firstName} ${profile.lastName}'s portfolio. You are knowledgeable about software development. Keep answers short and clear.`,
+            content: `You are a helpful AI assistant on ${profile.firstName} ${profile.lastName}'s portfolio. You are knowledgeable about software development. Keep answers short and clear.\n\n${portfolioContext}`,
           },
           ...history,
         ],

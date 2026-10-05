@@ -51,7 +51,7 @@ export default function Hero() {
           <div className="card absolute -bottom-6 -left-4 border border-base-300 bg-base-100/90 shadow-xl backdrop-blur sm:-left-8">
             <div className="card-body gap-1 px-5 py-4">
               <p className="text-eyebrow text-base-content/50">Currently</p>
-              <p className="font-display font-medium tracking-tight">Building tools for the web</p>
+              <p className="font-display font-medium tracking-tight">{profile.currently}</p>
             </div>
           </div>
         </div>
