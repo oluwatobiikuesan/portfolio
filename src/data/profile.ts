@@ -28,7 +28,6 @@ export const profile = {
   tagline: "builds calm, useful software.",
   intro:
     "I craft digital tools that simplify business processes and make everyday life a little easier. I care about clear interfaces, honest code and details that quietly work.",
-  available: true,
 
   // Replace this file with your own photo (a 4:5 portrait works best),
   // or point this path at a new file inside the public/ folder.

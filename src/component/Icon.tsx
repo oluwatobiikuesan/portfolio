@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-type IconName = "github" | "linkedin" | "mail" | "arrow" | "arrow-up" | "sun" | "moon" | "menu" | "send" | "flip";
+type IconName = "github" | "linkedin" | "mail" | "arrow" | "arrow-up" | "sun" | "moon" | "menu" | "send" | "flip" | "close";
 
 const paths: Record<IconName, ReactElement> = {
   github: (
@@ -34,6 +34,7 @@ const paths: Record<IconName, ReactElement> = {
   ),
   moon: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />,
   menu: <path d="M4 7h16M4 12h16M4 17h10" />,
+  close: <path d="M6 6l12 12M18 6 6 18" />,
   send: <path d="M5 12h14M13 6l6 6-6 6" />,
 };
 

@@ -9,19 +9,12 @@ export default function Hero() {
   return (
     <section id="top" className="mx-auto grid max-w-6xl items-center gap-16 px-4 pt-16 pb-24 sm:px-6 md:pt-24 lg:grid-cols-[1.25fr_1fr] lg:pb-32">
       <div>
-        {profile.available && (
-          <div className="rise badge badge-outline badge-lg h-auto gap-2 rounded-full border-base-300 px-4 py-2 font-mono text-xs" style={delay(0)}>
-            <span className="status animate-pulse bg-base-content/70" />
-            Available for new projects
-          </div>
-        )}
-
-        <h1 className="text-display mt-8">
-          <span className="rise inline-block" style={delay(120)}>
+        <h1 className="text-display">
+          <span className="rise inline-block" style={delay(0)}>
             {profile.firstName}
           </span>
           <br />
-          <span className="rise inline-block text-base-content/35" style={delay(240)}>
+          <span className="rise inline-block text-base-content/35" style={delay(120)}>
             {profile.lastName}
           </span>
         </h1>
