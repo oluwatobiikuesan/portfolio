@@ -48,7 +48,7 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn btn-outline btn-sm rounded-full border-base-300 px-4"
+                    className="btn btn-outline btn-sm border-base-300 px-4"
                   >
                     <Icon name={social.icon} className="size-4" />
                     {social.label}
@@ -75,7 +75,7 @@ export default function Contact() {
                   <textarea name="message" required rows={5} className="textarea textarea-lg w-full resize-none" placeholder="Tell me about your project" />
                 </fieldset>
 
-                <button type="submit" className="btn btn-primary btn-lg mt-4 rounded-full">
+                <button type="submit" className="btn btn-primary btn-lg mt-4">
                   Send message
                   <Icon name="send" className="size-4" />
                 </button>

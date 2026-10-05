@@ -30,7 +30,7 @@ export default function ThemeToggle() {
   const isDark = theme === DARK;
 
   return (
-    <label className="swap swap-rotate btn btn-ghost btn-circle btn-sm" aria-label="Toggle colour theme">
+    <label className="swap swap-rotate btn btn-ghost btn-square btn-sm" aria-label="Toggle colour theme">
       <input type="checkbox" checked={isDark} onChange={() => setTheme(isDark ? LIGHT : DARK)} />
       <Icon name="sun" className="swap-off size-[18px]" />
       <Icon name="moon" className="swap-on size-[18px]" />

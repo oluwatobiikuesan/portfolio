@@ -23,7 +23,7 @@ export default function Footer() {
               href={social.href}
               target={social.icon === "mail" ? undefined : "_blank"}
               rel="noreferrer"
-              className="btn btn-ghost btn-circle btn-sm"
+              className="btn btn-ghost btn-square btn-sm"
               aria-label={social.label}
             >
               <Icon name={social.icon} className="size-[18px]" />
@@ -32,7 +32,7 @@ export default function Footer() {
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="btn btn-ghost btn-sm rounded-full"
+            className="btn btn-ghost btn-sm"
           >
             <Icon name="arrow-up" className="size-4" />
             Top

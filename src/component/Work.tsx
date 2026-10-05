@@ -29,7 +29,7 @@ export default function Work() {
                 </div>
               </div>
               <span
-                className={`btn btn-circle btn-ghost btn-sm self-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 ${
+                className={`btn btn-square btn-ghost btn-sm self-center transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 ${
                   project.link ? "" : "invisible"
                 }`}
                 aria-hidden="true"

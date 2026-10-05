@@ -35,11 +35,11 @@ export default function Hero() {
         </p>
 
         <div className="rise mt-10 flex flex-wrap items-center gap-3" style={delay(620)}>
-          <Link to="/#work" className="btn btn-primary rounded-full px-7">
+          <Link to="/#work" className="btn btn-primary px-7">
             View my work
             <Icon name="arrow" className="size-4" />
           </Link>
-          <Link to="/#contact" className="btn btn-ghost rounded-full px-7">
+          <Link to="/#contact" className="btn btn-ghost px-7">
             Get in touch
           </Link>
         </div>

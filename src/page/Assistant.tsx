@@ -72,7 +72,7 @@ export default function Assistant() {
               <p className="text-base-content/50">Start with a question, or try one of these:</p>
               <div className="flex flex-wrap justify-center gap-2">
                 {suggestions.map((s) => (
-                  <button key={s} type="button" onClick={() => send(s)} className="btn btn-outline btn-sm rounded-full border-base-300 font-normal">
+                  <button key={s} type="button" onClick={() => send(s)} className="btn btn-outline btn-sm border-base-300 font-normal">
                     {s}
                   </button>
                 ))}
@@ -109,9 +109,9 @@ export default function Assistant() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your question"
             aria-label="Your question"
-            className="input w-full rounded-full"
+            className="input w-full"
           />
-          <button type="submit" disabled={!input.trim() || loading} className="btn btn-primary btn-circle" aria-label="Send">
+          <button type="submit" disabled={!input.trim() || loading} className="btn btn-primary btn-square" aria-label="Send">
             <Icon name="send" className="size-4" />
           </button>
         </form>

@@ -28,7 +28,7 @@ export default function Navbar() {
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  className={`rounded-full px-4 ${current === link.to ? "menu-active" : "text-base-content/70"}`}
+                  className={`rounded-field px-4 ${current === link.to ? "menu-active" : "text-base-content/70"}`}
                 >
                   {link.label}
                 </Link>
@@ -39,12 +39,12 @@ export default function Navbar() {
 
         <div className="navbar-end gap-1">
           <ThemeToggle />
-          <Link to="/#contact" className="btn btn-primary btn-sm hidden rounded-full px-5 sm:inline-flex">
+          <Link to="/#contact" className="btn btn-primary btn-sm hidden px-5 sm:inline-flex">
             Let's talk
           </Link>
 
           <div className="dropdown dropdown-end md:hidden">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle btn-sm" aria-label="Open menu">
+            <div tabIndex={0} role="button" className="btn btn-ghost btn-square btn-sm" aria-label="Open menu">
               <Icon name="menu" />
             </div>
             <ul
