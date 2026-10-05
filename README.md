@@ -23,7 +23,10 @@ The photo is shown in greyscale and fades to full colour on hover, so any photo 
 ## Edit the content
 
 Everything you see on the page lives in **`src/data/profile.ts`**: name, intro, about text, stats, skills,
-projects (add a `link` to make a project clickable), social links and the contact email.
+projects, social links and the contact email.
+
+Each project shows as a flip card: the front has the title, company and tags, the back has the summary,
+optional `highlights` (a list of bullet points) and a **Visit site** button when the project has a `link`.
 Remember to replace `hello@example.com` with your real address.
 
 ## Design system
@@ -35,7 +38,7 @@ Remember to replace `hello@example.com` with your real address.
 | Fonts | `index.html` | Inter Tight (display), Inter (body), Instrument Serif (italic accents), JetBrains Mono (labels). |
 | Motion | `src/index.css` | Words rise into place, the portrait floats, sections drift up on scroll. Disabled for reduced motion users. |
 
-daisyUI components in use: navbar, menu, dropdown, swap (theme toggle), btn, badge, status, card, stats, list,
+daisyUI components in use: navbar, menu, dropdown, swap (theme toggle), btn, badge, status, card (project flip cards), stats,
 fieldset, input, textarea, alert, chat, loading and footer.
 
 ## Structure

@@ -12,6 +12,8 @@ export type Project = {
   summary: string;
   tags: string[];
   link?: string;
+  // Optional bullet points shown on the back of the project card.
+  highlights?: string[];
 };
 
 export type Focus = {
