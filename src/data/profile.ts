@@ -8,6 +8,7 @@ export type Social = {
 
 export type Project = {
   title: string;
+  org?: string;
   summary: string;
   tags: string[];
   link?: string;
@@ -37,7 +38,7 @@ export const profile = {
 
   about: [
     "I am a software engineer and computer science student with a background in graphic design. That mix shapes how I work: I think about systems and structure, but I never lose sight of how a product looks and feels.",
-    "Most of my work sits where the browser meets the backend. I enjoy turning messy, manual tasks into small tools that are pleasant to use, and I am always learning something new along the way.",
+    "My work spans web, mobile and AI: production web apps, an AI career platform and React Native apps that talk to hardware over Bluetooth. I enjoy turning messy, manual tasks into tools that are pleasant to use, and I am always learning something new along the way.",
   ],
 };
 
@@ -47,23 +48,19 @@ export const socials: Social[] = [
   { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
 ];
 
-export const stats = [
-  { label: "Projects shipped", value: "05" },
-  { label: "Languages", value: "05" },
-  { label: "Disciplines", value: "03" },
-];
-
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Java", "JavaScript", "TypeScript", "Python", "HTML", "CSS"] },
-  { group: "Frontend", items: ["React", "Tailwind CSS", "daisyUI", "Vite", "Responsive design"] },
-  { group: "Backend & tools", items: ["Node.js", "Express", "REST APIs", "Git", "GitHub"] },
+  { group: "Languages", items: ["Python", "Java", "JavaScript", "TypeScript", "Bash", "SQL", "HTML", "CSS"] },
+  { group: "Databases", items: ["PostgreSQL", "MongoDB"] },
+  { group: "Frontend & mobile", items: ["React", "React Native", "Tailwind CSS", "daisyUI", "Vite", "Responsive design"] },
+  { group: "Backend & AI", items: ["Node.js", "Express", "REST APIs", "LLM APIs", "Bluetooth Low Energy"] },
+  { group: "DevOps & tools", items: ["Docker", "Git", "GitHub", "GitHub Actions", "CI/CD", "Linux", "npm"] },
   { group: "Design", items: ["UI design", "Typography", "Graphic design", "Prototyping"] },
 ];
 
 export const focus: Focus[] = [
   {
     title: "Software engineering",
-    body: "Building reliable web apps and tools, from the interface down to the API, with code that is easy to read and easy to change.",
+    body: "Building reliable web and mobile apps, from the interface down to the API, with code that is easy to read and easy to change.",
   },
   {
     title: "Computer science",
@@ -76,6 +73,29 @@ export const focus: Focus[] = [
 ];
 
 export const projects: Project[] = [
+  {
+    title: "Arktively",
+    summary: "A live web product, designed, built and shipped to production at arktively.com.",
+    tags: ["Web app", "Production"],
+    link: "https://arktively.com",
+  },
+  {
+    title: "AllTheTools",
+    summary: "A collection of handy online tools gathered in one place, built to be fast and simple to use.",
+    tags: ["Web app", "Tools"],
+    link: "https://allthetools.com",
+  },
+  {
+    title: "Gradit",
+    summary: "An AI career platform that helps people understand where they are and plan their next career move.",
+    tags: ["AI", "Platform", "Careers"],
+  },
+  {
+    title: "BLE Control System",
+    org: "Deep Sym",
+    summary: "A React Native app that connects to and controls hardware over Bluetooth Low Energy.",
+    tags: ["React Native", "BLE", "Mobile"],
+  },
   {
     title: "Swiftbot",
     summary: "A programmable robot project exploring movement, sensors and simple decision making.",
@@ -101,6 +121,15 @@ export const projects: Project[] = [
     summary: "A console based banking system covering accounts, deposits, withdrawals and transaction history.",
     tags: ["Java", "OOP"],
   },
+];
+
+const pad = (n: number) => String(n).padStart(2, "0");
+
+// Counts update automatically as projects and skills are added.
+export const stats = [
+  { label: "Projects", value: pad(projects.length) },
+  { label: "Languages", value: pad(skills.find((s) => s.group === "Languages")?.items.length ?? 0) },
+  { label: "Disciplines", value: pad(focus.length) },
 ];
 
 export const navLinks = [

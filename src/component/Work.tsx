@@ -16,6 +16,7 @@ export default function Work() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <div className="list-col-grow">
+                {project.org && <p className="text-eyebrow mb-2 text-base-content/50">at {project.org}</p>}
                 <h3 className="text-title transition-transform duration-500 ease-[var(--ease-buoy)] group-hover:translate-x-1">
                   {project.title}
                 </h3>
