@@ -1,21 +1,44 @@
+import { profile, socials } from "../data/profile";
+import Icon from "./Icon";
+
 export default function Footer() {
-    const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-    return (
-      <footer className="w-full bg-slate-950 border-t border-white/5 py-8 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-slate-400 text-sm">
-              <p>&copy; {year} XDOODLE. All rights reserved.</p>
-            </div>
+  return (
+    <footer className="border-t border-base-300/70">
+      <div className="footer mx-auto max-w-6xl items-center px-4 py-10 sm:footer-horizontal sm:px-6">
+        <aside>
+          <p className="font-display text-lg font-semibold tracking-tight">
+            {profile.firstName} {profile.lastName}
+          </p>
+          <p className="text-sm text-base-content/50">
+            &copy; {year}. Designed and built with care.
+          </p>
+        </aside>
 
-            <div className="flex space-x-6">
-              <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors text-sm font-medium">GITHUB</a>
-              <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors text-sm font-medium">LINKEDIN</a>
-              <a href="#" className="text-slate-400 hover:text-purple-400 transition-colors text-sm font-medium">TWITTER</a>
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
-  }
+        <nav className="grid-flow-col items-center gap-2 sm:place-self-center sm:justify-self-end">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target={social.icon === "mail" ? undefined : "_blank"}
+              rel="noreferrer"
+              className="btn btn-ghost btn-circle btn-sm"
+              aria-label={social.label}
+            >
+              <Icon name={social.icon} className="size-[18px]" />
+            </a>
+          ))}
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="btn btn-ghost btn-sm rounded-full"
+          >
+            <Icon name="arrow-up" className="size-4" />
+            Top
+          </button>
+        </nav>
+      </div>
+    </footer>
+  );
+}

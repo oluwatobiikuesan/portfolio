@@ -1,13 +1,23 @@
-import HeroPage from '../component/heropage';
+import { useEffect } from "react";
+import About from "../component/About";
+import Contact from "../component/Contact";
+import Hero from "../component/Hero";
+import Skills from "../component/Skills";
+import Work from "../component/Work";
+import { profile } from "../data/profile";
 
 export default function Home() {
-  // let item = "i am a software engineer. i am a computer science student. i am a graphics designer."
+  useEffect(() => {
+    document.title = `${profile.firstName} ${profile.lastName} | ${profile.role}`;
+  }, []);
+
   return (
-    <main className='home'>
-    <section className='text-white
-        bg-black backdrop-blur-2xl'>
-    <HeroPage/>
-</section>
-    </main>
-  )
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Work />
+      <Contact />
+    </>
+  );
 }
