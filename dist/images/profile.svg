@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Placeholder portrait">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d9d9d9"/>
+      <stop offset="1" stop-color="#bdbdbd"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <circle cx="400" cy="400" r="150" fill="#9e9e9e"/>
+  <path d="M120 1000c0-190 125-330 280-330s280 140 280 330z" fill="#9e9e9e"/>
+  <text x="400" y="110" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" letter-spacing="6" fill="#7a7a7a">YOUR PHOTO HERE</text>
+  <text x="400" y="152" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#8a8a8a">public/images/profile.svg</text>
+</svg>

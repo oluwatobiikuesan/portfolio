@@ -1,9 +1,0 @@
-.layout{
-    background-color: rgb(255, 255, 255);
-    min-height: 100dvh;
-    position: relative;
-    width: 100%;
-}
-.layout > div{
-    background-color: rgb(255, 255, 255);
-}
