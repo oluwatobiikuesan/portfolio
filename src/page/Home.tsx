@@ -6,6 +6,7 @@ import Skills from "../component/Skills";
 import Work from "../component/Work";
 import { profile } from "../data/profile";
 
+
 export default function Home() {
   useEffect(() => {
     document.title = `${profile.firstName} ${profile.lastName} | ${profile.role}`;

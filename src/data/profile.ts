@@ -3,7 +3,7 @@
 export type Social = {
   label: string;
   href: string;
-  icon: "github" | "linkedin" | "mail";
+  icon: "github" | "linkedin" | "mail" | "instagram";
 };
 
 export type Project = {
@@ -31,16 +31,16 @@ export const profile = {
   role: "Software & AI Engineer",
   tagline: "builds calm, useful software.",
   intro:
-    "I build full stack, mobile and AI systems: video pipelines, real-time platforms, autonomous agents and connected devices. I care about clear interfaces, honest code and details that quietly work.",
-  currently: "Building AI agents and autonomous systems",
+    "My workflow includes AI agents these days. I still love to code by hand especially when these models decide to do what they like and not what I want.",
+    currently: "Building streamlined self evolving Agentic coding system",
 
   // Replace this file with your own photo (a 4:5 portrait works best),
   // or point this path at a new file inside the public/ folder.
-  image: "/images/profile.svg",
+  image: "/images/headshot.png",
   imageAlt: "Portrait of Oluwatobi Ikuesan",
 
-  email: "hello@example.com",
-  resume: "",
+  email: "oluwatobi.ikuesan@yahoo.com",
+  resume: ["Oluwatobi_Resume_Software_Engr", "Oluwatobi_Resume_Data_Engr"],
 
   about: [
     "I am a software engineer and computer science student with a background in graphic design. I work across the whole stack: mobile apps, backend services, real-time systems and the pipelines that ship them.",
@@ -52,14 +52,15 @@ export const profile = {
 export const socials: Social[] = [
   { label: "GitHub", href: "https://github.com/oluwatobiikuesan", icon: "github" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/oluwatobiikuesan/", icon: "linkedin" },
+  { label: "Instagram", href: "https://www.instagram.com/xdoodlekid/", icon: "instagram" },
   { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
 ];
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "Dart"] },
-  { group: "Frontend & mobile", items: ["React", "Next.js", "React Native", "Expo", "Flutter", "Riverpod"] },
-  { group: "Backend", items: ["Node.js", "Spring Boot", "REST APIs", "Socket.IO", "WebSockets", "Sequelize"] },
-  { group: "Data", items: ["MySQL", "PostgreSQL", "Supabase", "Firebase"] },
+  { group: "Languages", items: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "Dart", "Postgresql", "Bash", "Shell"] },
+  { group: "Frontend & mobile", items: ["React", "Next.js", "React Native", "Expo", "Flutter", "ADK", "GDK"] },
+  { group: "Backend", items: ["Node.js", "Spring Boot", "Supabase", "REST APIs", "Networking"] },
+  { group: "Data", items: ["MySQL", "PostgreSQL", "Firebase", "Databrick", "Microsoft Azure"] },
   {
     group: "AI & automation",
     items: ["LLMs", "AI Agents", "OpenClaw", "n8n", "Ollama", "AI Evaluation", "Agent Orchestration"],
@@ -249,5 +250,5 @@ export const navLinks = [
   { label: "Skills", to: "/#skills" },
   { label: "Work", to: "/#work" },
   { label: "Contact", to: "/#contact" },
-  { label: "Ask AI", to: "/ai" },
+  // { label: "Ask AI", to: "/ai" },
 ];

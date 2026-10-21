@@ -41,7 +41,8 @@
   --radius-box: 1.25rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 1px;
+  --size-box: 0.25rem;
+  --border: 0px;
   --depth: 0;
   --noise: 0;
 }
@@ -81,7 +82,8 @@
   --radius-box: 1.25rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
-  --border: 1px;
+  --size-box: 0.25rem;
+  --border: 0px;
   --depth: 0;
   --noise: 0;
 }
@@ -124,7 +126,7 @@
 }
 
 @utility text-lead {
-  font-size: clamp(1.0625rem, 0.98rem + 0.45vw, 1.3125rem);
+  font-size: clamp(0.85rem, 0.65rem + 0.45vw, 1.3125rem);
   line-height: 1.7;
   letter-spacing: -0.005em;
 }

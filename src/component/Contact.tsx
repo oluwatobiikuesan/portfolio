@@ -58,25 +58,25 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={120}>
-            <form onSubmit={handleSubmit} className="card border border-base-300 bg-base-100">
+            <form onSubmit={handleSubmit} className="card border-none bg-base-100/50 shadow-lg">
               <div className="card-body gap-2 p-6 md:p-10">
                 <fieldset className="fieldset">
                   <legend className="fieldset-legend text-eyebrow text-base-content/50">Name</legend>
-                  <input name="name" type="text" required autoComplete="name" className="input input-lg w-full" placeholder="Your name" />
+                  <input name="name" type="text" required autoComplete="name" className="input input-lg w-full text-sm outline-none" placeholder="Your name" />
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <legend className="fieldset-legend text-eyebrow text-base-content/50">Email</legend>
-                  <input name="email" type="email" required autoComplete="email" className="input input-lg w-full" placeholder="you@example.com" />
+                  <input name="email" type="email" required autoComplete="email" className="input input-lg w-full text-sm outline-none" placeholder="you@example.com" />
                 </fieldset>
 
                 <fieldset className="fieldset">
                   <legend className="fieldset-legend text-eyebrow text-base-content/50">Message</legend>
-                  <textarea name="message" required rows={5} className="textarea textarea-lg w-full resize-none" placeholder="Tell me about your project" />
+                  <textarea name="message" required rows={5} className="text-sm textarea textarea-lg w-full resize-none outline-none" placeholder="Tell me about your project" />
                 </fieldset>
 
-                <button type="submit" className="btn btn-primary btn-lg mt-4">
-                  Send message
+                <button type="submit" className="btn btn-primary btn-lg mt-4 flex items-center justify-stretch gap-2">
+                  <span className="mr-2 w-full text-left text-sm">Send message</span>
                   <Icon name="send" className="size-4" />
                 </button>
 

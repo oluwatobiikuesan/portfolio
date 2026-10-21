@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
 
+
 // Scrolls to the section named in the URL hash (e.g. /#work), or to the top on page change.
 function useScrollToHash() {
   const { pathname, hash, key } = useLocation();

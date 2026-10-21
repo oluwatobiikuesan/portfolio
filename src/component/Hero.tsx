@@ -38,7 +38,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="rise relative mx-auto w-full max-w-sm lg:max-w-none" style={delay(300)}>
+      <div className="rise relative cursor-pointer mx-auto w-full max-w-sm lg:max-w-none" style={delay(300)}>
         <div className="float">
           <figure className="group relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-base-300 bg-base-200">
             <img
@@ -48,7 +48,7 @@ export default function Hero() {
               loading="eager"
             />
           </figure>
-          <div className="card absolute -bottom-6 -left-4 border border-base-300 bg-base-100/90 shadow-xl backdrop-blur sm:-left-8">
+          <div className="card absolute -bottom-6 -left-4 border-none bg-base-100/90 shadow-xl backdrop-blur sm:-left-8">
             <div className="card-body gap-1 px-5 py-4">
               <p className="text-eyebrow text-base-content/50">Currently</p>
               <p className="font-display font-medium tracking-tight">{profile.currently}</p>

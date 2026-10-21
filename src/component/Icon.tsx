@@ -1,6 +1,6 @@
 import type { ReactElement } from "react";
 
-type IconName = "github" | "linkedin" | "mail" | "arrow" | "arrow-up" | "sun" | "moon" | "menu" | "send" | "flip" | "close";
+type IconName = "github" | "linkedin" | "x" | "instagram" | "mail" | "arrow" | "arrow-up" | "sun" | "moon" | "menu" | "send" | "flip" | "close";
 
 const paths: Record<IconName, ReactElement> = {
   github: (
@@ -16,6 +16,14 @@ const paths: Record<IconName, ReactElement> = {
       stroke="none"
       d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
     />
+  ),
+  x: <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L3 2h6.4l4.42 5.84L18.9 2Zm-1.1 17.9h1.73L8.48 4H6.62L17.8 19.9Z" />,
+  instagram: (
+    <>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </>
   ),
   mail: (
     <>
