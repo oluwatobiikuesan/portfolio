@@ -6,7 +6,7 @@ type SectionHeadingProps = {
   title: string;
 };
 
-export default function SectionHeading({ index, eyebrow, title }: SectionHeadingProps) {
+export default function SectionHeading({ eyebrow, title }: SectionHeadingProps) {
   return (
     <Reveal className="mb-12 md:mb-20">
       <p className="text-eyebrow text-base-content/50 flex items-center gap-3">
